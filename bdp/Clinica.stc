@@ -1,0 +1,93 @@
+﻿<component_checksums>
+<base>
+<symbol name="NAME" value="Clinica" />
+<symbol name="TYPE" value="0" />
+<symbol name="PARAM" />
+<symbol name="CONSTRAINTS" />
+<symbol name="SEES" />
+<symbol name="INCLUDES" />
+<symbol name="IMPORTS" />
+<symbol name="PROMOTES" />
+<symbol name="EXTENDS" />
+<symbol name="USES" />
+<symbol name="SETS" value="239957b6f076ce400867fbaaa12b5d0e" />
+<symbol name="CONCRETE_VAR" />
+<symbol name="ABSTRACT_VAR" value="8f633514741623633a4d7a9b64481bae" />
+<symbol name="CONCRETE_CONST" />
+<symbol name="ABSTRACT_CONST" />
+<symbol name="PROPERTIES" />
+<symbol name="INVARIANT" value="b44464591fc17dc7531bf7425915610c" />
+<symbol name="VARIANT" />
+<symbol name="ASSERTIONS" />
+<symbol name="VALUES" />
+<operations>
+<operation>
+<symbol name="NAME" value="INITIALISATION" />
+<symbol name="COMPONENT" value="Clinica" />
+<symbol name="PRECONDITION" />
+<symbol name="BODY" value="6fb2c879c1ae07fcbf3c19abd7863547" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+<operation>
+<symbol name="NAME" value="addMedico" />
+<symbol name="COMPONENT" value="Clinica" />
+<symbol name="PRECONDITION" value="c846974ecad2785e111f3badd6f114f9" />
+<symbol name="BODY" value="3ce4640e2eb75f623045440b93cec585" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+<operation>
+<symbol name="NAME" value="removerMedico" />
+<symbol name="COMPONENT" value="Clinica" />
+<symbol name="PRECONDITION" value="ed4f8a7a43dd3718c02d74b5ca1d457e" />
+<symbol name="BODY" value="3a01bccfd50e954661278bdcace958b0" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+<operation>
+<symbol name="NAME" value="addPaciente" />
+<symbol name="COMPONENT" value="Clinica" />
+<symbol name="PRECONDITION" value="11f3a26e46e859bd89c4558c8a693e3e" />
+<symbol name="BODY" value="a8f906ba441ef9e6ad35656884a0e736" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+<operation>
+<symbol name="NAME" value="removerPaciente" />
+<symbol name="COMPONENT" value="Clinica" />
+<symbol name="PRECONDITION" value="65022abdbe8e34ddb920a920d177daca" />
+<symbol name="BODY" value="a2513a56b4c89c5c74efe73c760b0b8e" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+</operations>
+</base>
+<seen>
+</seen>
+<used>
+</used>
+<included>
+</included>
+<imported>
+</imported>
+<extended>
+</extended>
+<refined>
+</refined>
+</component_checksums>

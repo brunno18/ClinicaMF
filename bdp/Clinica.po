@@ -1,0 +1,48 @@
+﻿THEORY ProofList IS
+  _f(1) & _f(11) & _f(22) & removerPaciente.2,(_f(20) => _f(25));
+  _f(1) & _f(11) & _f(22) & removerPaciente.1,(_f(23) => _f(24));
+  _f(1) & _f(11) & _f(19) & addPaciente.1,(_f(20) => _f(21));
+  _f(1) & _f(11) & _f(15) & removerMedico.2,(_f(13) => _f(18));
+  _f(1) & _f(11) & _f(15) & removerMedico.1,(_f(16) => _f(17));
+  _f(1) & _f(11) & _f(12) & addMedico.1,(_f(13) => _f(14));
+  _f(1) & Initialisation.5,(_f(8) => _f(10));
+  _f(1) & Initialisation.4,(_f(8) => _f(9));
+  _f(1) & Initialisation.3,(_f(6) => _f(7));
+  _f(1) & Initialisation.2,(_f(4) => _f(5));
+  _f(1) & Initialisation.1,(_f(2) => _f(3))
+END
+&
+THEORY Formulas IS
+  ("`Component properties'" & MEDICOS: FIN(INTEGER) & not(MEDICOS = {}) & PACIENTES: FIN(INTEGER) & not(PACIENTES = {}) & SALAS: FIN(INTEGER) & not(SALAS = {}));
+  "`Check that the invariant (medicos <: MEDICOS) is established by the initialisation - ref 3.3'";
+  ({}: POW(MEDICOS));
+  "`Check that the invariant (pacientes <: PACIENTES) is established by the initialisation - ref 3.3'";
+  ({}: POW(PACIENTES));
+  "`Check that the invariant (salas <: SALAS) is established by the initialisation - ref 3.3'";
+  ({}: POW(SALAS));
+  "`Check that the invariant (cm: NAT1 --> medicos) is established by the initialisation - ref 3.3'";
+  ({}: NAT-{0} +-> {});
+  (dom({}) = NAT-{0});
+  ("`Component invariant'" & medicos: POW(MEDICOS) & pacientes: POW(PACIENTES) & salas: POW(SALAS) & cm: NAT-{0} +-> medicos & dom(cm) = NAT-{0} & cp: NAT-{0} +-> pacientes & dom(cp) = NAT-{0} & cs: NAT-{0} +-> salas & dom(cs) = NAT-{0});
+  ("`addMedico preconditions in this component'" & mm: MEDICOS & not(mm: medicos));
+  "`Check that the invariant (cm: NAT1 --> medicos) is preserved by the operation - ref 3.4'";
+  (cm: NAT-{0} +-> medicos\/{mm});
+  ("`removerMedico preconditions in this component'" & mm: medicos & not(mm: ran(cm)));
+  "`Check that the invariant (medicos <: MEDICOS) is preserved by the operation - ref 3.4'";
+  (medicos-{mm}: POW(MEDICOS));
+  (cm: NAT-{0} +-> medicos-{mm});
+  ("`addPaciente preconditions in this component'" & pp: PACIENTES & not(pp: pacientes));
+  "`Check that the invariant (cp: NAT1 --> pacientes) is preserved by the operation - ref 3.4'";
+  (cp: NAT-{0} +-> pacientes\/{pp});
+  ("`removerPaciente preconditions in this component'" & pp: pacientes & not(pp: ran(cp)));
+  "`Check that the invariant (pacientes <: PACIENTES) is preserved by the operation - ref 3.4'";
+  (pacientes-{pp}: POW(PACIENTES));
+  (cp: NAT-{0} +-> pacientes-{pp})
+END
+&
+THEORY EnumerateX 
+END
+&
+THEORY Version IS
+  POVersion("V4.0-55020")(CLT == "V4.0-53996")(genOPO == KO, genDivergencePO == KO, local_op == OK)
+END

@@ -1,0 +1,4 @@
+digraph {
+Clinica [ label=" Clinica " shape= box ]
+
+}
