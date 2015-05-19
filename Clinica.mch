@@ -4,19 +4,26 @@
  */
 MACHINE
     Clinica
+
+SEES Quantidade
+
+SETS MEDICOS; PACIENTES; SALAS
     
-SETS MEDICOS; PACIENTES; SALAS 
-    
-VARIABLES cm, cp, cs, medicos, pacientes, salas
+VARIABLES cm, cp, ch, cs, medicos, pacientes, salas, salasDisponiveis, counter, tamanho
 
 INVARIANT medicos <: MEDICOS & 
           pacientes <: PACIENTES &
           salas <: SALAS &
+          salasDisponiveis : NAT &
           cm : NAT1 --> medicos & 
           cp : NAT1 --> pacientes &
-          cs : NAT1 --> salas
+          cs : NAT1 --> salas & 
+          ch : NAT1 --> NAT &
+          counter : NAT &
+          card(salas) = quantidade &
+          tamanho : NAT
 
-INITIALISATION cm := {} || cp := {} || cs := {} || medicos := {} || pacientes := {} || salas := {}
+INITIALISATION cm := {} || cp := {} || cs := {} || ch := {} || medicos := {} || pacientes := {} || salas := {} || salasDisponiveis := quantidade || counter := 1 || tamanho := 0
   
 OPERATIONS
     
@@ -48,6 +55,32 @@ OPERATIONS
     removerSala ( ss ) = 
         PRE ss : salas & ss /: ran(cs)
         THEN salas := salas - {ss}
-        END
-
+        END;
+       
+    addConsulta ( mm, pp, hh ) =
+        PRE mm : medicos & pp : pacientes & hh : NAT
+        THEN
+            IF  mm /: cm[dom(ch |> {hh})] & pp /: cp[dom(ch |> {hh})] & salasDisponiveis > 0 
+                THEN
+                    cm := cm \/ {(counter, mm)} ||
+                    cp := cp \/ {(counter, pp)} ||
+                    ch := ch \/ {(counter, hh)} ||
+                    ANY ss
+                    WHERE ss : salas & ss /: cs[dom(ch |> {hh})]
+                    THEN cs := cs \/ {(counter, ss)}
+                    END ||
+                    counter := counter + 1 ||
+                    salasDisponiveis := salasDisponiveis - 1 ||
+                    tamanho :=  tamanho + 1
+                END
+        END;
+        
+     desmarcarConsulta (mm, pp, hh, id) =
+         PRE mm : medicos & pp : pacientes & hh : NAT & id : NAT1
+         THEN 
+             cm := cm /|\ id -1 ^ cm \|/ id ||
+             cp := cp /|\ id -1 ^ cp \|/ id ||
+             ch := ch /|\ id -1 ^ ch \|/ id ||
+             cs := cs /|\ id -1 ^ cs \|/ id
+         END;
 END

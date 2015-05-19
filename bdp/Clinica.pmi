@@ -1,10 +1,12 @@
 ﻿THEORY BalanceX IS
-  Clinica,11,0,0,10,0,0,0;
-  Initialisation,5,0,0,4,0,0,0;
+  Clinica,18,0,0,17,0,0,0;
+  Initialisation,9,0,0,8,0,0,0;
   addMedico,1,0,0,1,0,0,0;
   removerMedico,2,0,0,2,0,0,0;
   addPaciente,1,0,0,1,0,0,0;
-  removerPaciente,2,0,0,2,0,0,0
+  removerPaciente,2,0,0,2,0,0,0;
+  addSala,1,0,0,1,0,0,0;
+  removerSala,2,0,0,2,0,0,0
 END
 &
 THEORY ProofState IS
@@ -14,7 +16,14 @@ THEORY ProofState IS
   Proved(0);
   Proved(0);
   Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
   Unproved;
+  Proved(0);
+  Proved(0);
+  Proved(0);
   Proved(0);
   Proved(0);
   Proved(0);
@@ -28,7 +37,14 @@ THEORY MethodList IS
   pr;
   pr;
   pr;
+  pr;
+  pr;
+  pr;
+  pr;
   ?;
+  pr;
+  pr;
+  pr;
   pr;
   pr;
   pr;
@@ -42,7 +58,14 @@ THEORY PassList IS
   Force(0),?;
   Force(0),?;
   Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
   Force(0),(?;0;1;2;3);
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
   Force(0),?;
   Force(0),?;
   Force(0),?;

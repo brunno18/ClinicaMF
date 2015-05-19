@@ -1,4 +1,6 @@
 digraph {
 Clinica [ label=" Clinica " shape= box ]
+Quantidade [ label=" Quantidade " shape= box ]
 
+"Clinica" -> "Quantidade" [style= dotted ]
 }

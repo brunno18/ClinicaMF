@@ -7,5 +7,8 @@
         <component_file path="C:/Users/bruno/Documents/AtelierB/Clinica" name="Clinica" suffix="mch" user="bruno">
             <component name="Clinica" type="specification" />
         </component_file>
+        <component_file path="C:/Users/bruno/Documents/AtelierB/Clinica" name="Quantidade" suffix="mch" user="bruno">
+            <component name="Quantidade" type="specification" />
+        </component_file>
     </project>
 </db_xml>

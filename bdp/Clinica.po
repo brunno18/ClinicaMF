@@ -1,10 +1,17 @@
 ﻿THEORY ProofList IS
-  _f(1) & _f(11) & _f(22) & removerPaciente.2,(_f(20) => _f(25));
-  _f(1) & _f(11) & _f(22) & removerPaciente.1,(_f(23) => _f(24));
-  _f(1) & _f(11) & _f(19) & addPaciente.1,(_f(20) => _f(21));
-  _f(1) & _f(11) & _f(15) & removerMedico.2,(_f(13) => _f(18));
-  _f(1) & _f(11) & _f(15) & removerMedico.1,(_f(16) => _f(17));
-  _f(1) & _f(11) & _f(12) & addMedico.1,(_f(13) => _f(14));
+  _f(1) & _f(17) & _f(35) & removerSala.2,(_f(33) => _f(38));
+  _f(1) & _f(17) & _f(35) & removerSala.1,(_f(36) => _f(37));
+  _f(1) & _f(17) & _f(32) & addSala.1,(_f(33) => _f(34));
+  _f(1) & _f(17) & _f(28) & removerPaciente.2,(_f(26) => _f(31));
+  _f(1) & _f(17) & _f(28) & removerPaciente.1,(_f(29) => _f(30));
+  _f(1) & _f(17) & _f(25) & addPaciente.1,(_f(26) => _f(27));
+  _f(1) & _f(17) & _f(21) & removerMedico.2,(_f(19) => _f(24));
+  _f(1) & _f(17) & _f(21) & removerMedico.1,(_f(22) => _f(23));
+  _f(1) & _f(17) & _f(18) & addMedico.1,(_f(19) => _f(20));
+  _f(1) & Initialisation.9,(_f(15) => _f(16));
+  _f(1) & Initialisation.8,(_f(12) => _f(14));
+  _f(1) & Initialisation.7,(_f(12) => _f(13));
+  _f(1) & Initialisation.6,(_f(8) => _f(11));
   _f(1) & Initialisation.5,(_f(8) => _f(10));
   _f(1) & Initialisation.4,(_f(8) => _f(9));
   _f(1) & Initialisation.3,(_f(6) => _f(7));
@@ -13,17 +20,23 @@
 END
 &
 THEORY Formulas IS
-  ("`Component properties'" & MEDICOS: FIN(INTEGER) & not(MEDICOS = {}) & PACIENTES: FIN(INTEGER) & not(PACIENTES = {}) & SALAS: FIN(INTEGER) & not(SALAS = {}));
+  ("`Seen and used machines properties'" & quantidade = 5 & "`Component properties'" & MEDICOS: FIN(INTEGER) & not(MEDICOS = {}) & PACIENTES: FIN(INTEGER) & not(PACIENTES = {}) & SALAS: FIN(INTEGER) & not(SALAS = {}));
   "`Check that the invariant (medicos <: MEDICOS) is established by the initialisation - ref 3.3'";
   ({}: POW(MEDICOS));
   "`Check that the invariant (pacientes <: PACIENTES) is established by the initialisation - ref 3.3'";
   ({}: POW(PACIENTES));
   "`Check that the invariant (salas <: SALAS) is established by the initialisation - ref 3.3'";
   ({}: POW(SALAS));
+  "`Check that the invariant (salasDisponiveis: NAT) is established by the initialisation - ref 3.3'";
+  (quantidade: INTEGER);
+  (0<=quantidade);
+  (quantidade<=2147483647);
   "`Check that the invariant (cm: NAT1 --> medicos) is established by the initialisation - ref 3.3'";
   ({}: NAT-{0} +-> {});
   (dom({}) = NAT-{0});
-  ("`Component invariant'" & medicos: POW(MEDICOS) & pacientes: POW(PACIENTES) & salas: POW(SALAS) & cm: NAT-{0} +-> medicos & dom(cm) = NAT-{0} & cp: NAT-{0} +-> pacientes & dom(cp) = NAT-{0} & cs: NAT-{0} +-> salas & dom(cs) = NAT-{0});
+  "`Check that the invariant (ch: NAT1 --> NAT) is established by the initialisation - ref 3.3'";
+  ({}: NAT-{0} +-> NAT);
+  ("`Component invariant'" & medicos: POW(MEDICOS) & pacientes: POW(PACIENTES) & salas: POW(SALAS) & salasDisponiveis: INTEGER & 0<=salasDisponiveis & salasDisponiveis<=2147483647 & cm: NAT-{0} +-> medicos & dom(cm) = NAT-{0} & cp: NAT-{0} +-> pacientes & dom(cp) = NAT-{0} & cs: NAT-{0} +-> salas & dom(cs) = NAT-{0} & ch: NAT-{0} +-> NAT & dom(ch) = NAT-{0});
   ("`addMedico preconditions in this component'" & mm: MEDICOS & not(mm: medicos));
   "`Check that the invariant (cm: NAT1 --> medicos) is preserved by the operation - ref 3.4'";
   (cm: NAT-{0} +-> medicos\/{mm});
@@ -37,7 +50,14 @@ THEORY Formulas IS
   ("`removerPaciente preconditions in this component'" & pp: pacientes & not(pp: ran(cp)));
   "`Check that the invariant (pacientes <: PACIENTES) is preserved by the operation - ref 3.4'";
   (pacientes-{pp}: POW(PACIENTES));
-  (cp: NAT-{0} +-> pacientes-{pp})
+  (cp: NAT-{0} +-> pacientes-{pp});
+  ("`addSala preconditions in this component'" & ss: SALAS & not(ss: salas));
+  "`Check that the invariant (cs: NAT1 --> salas) is preserved by the operation - ref 3.4'";
+  (cs: NAT-{0} +-> salas\/{ss});
+  ("`removerSala preconditions in this component'" & ss: salas & not(ss: ran(cs)));
+  "`Check that the invariant (salas <: SALAS) is preserved by the operation - ref 3.4'";
+  (salas-{ss}: POW(SALAS));
+  (cs: NAT-{0} +-> salas-{ss})
 END
 &
 THEORY EnumerateX 

@@ -4,7 +4,7 @@
 <symbol name="TYPE" value="0" />
 <symbol name="PARAM" />
 <symbol name="CONSTRAINTS" />
-<symbol name="SEES" />
+<symbol name="SEES" value="404eedacb60d7088d8929105cb102c95" />
 <symbol name="INCLUDES" />
 <symbol name="IMPORTS" />
 <symbol name="PROMOTES" />
@@ -12,11 +12,11 @@
 <symbol name="USES" />
 <symbol name="SETS" value="239957b6f076ce400867fbaaa12b5d0e" />
 <symbol name="CONCRETE_VAR" />
-<symbol name="ABSTRACT_VAR" value="8f633514741623633a4d7a9b64481bae" />
+<symbol name="ABSTRACT_VAR" value="50dbcbb2c3cd63498478716f7c57ea3a" />
 <symbol name="CONCRETE_CONST" />
 <symbol name="ABSTRACT_CONST" />
 <symbol name="PROPERTIES" />
-<symbol name="INVARIANT" value="b44464591fc17dc7531bf7425915610c" />
+<symbol name="INVARIANT" value="7162befe842bce09529562da591a99e2" />
 <symbol name="VARIANT" />
 <symbol name="ASSERTIONS" />
 <symbol name="VALUES" />
@@ -25,7 +25,7 @@
 <symbol name="NAME" value="INITIALISATION" />
 <symbol name="COMPONENT" value="Clinica" />
 <symbol name="PRECONDITION" />
-<symbol name="BODY" value="6fb2c879c1ae07fcbf3c19abd7863547" />
+<symbol name="BODY" value="239445a0d1175e47b045ed8ca85ef044" />
 <called>
 </called>
 <refined>
@@ -76,9 +76,55 @@
 </refined>
 </operation>
 
+<operation>
+<symbol name="NAME" value="addSala" />
+<symbol name="COMPONENT" value="Clinica" />
+<symbol name="PRECONDITION" value="93624b9af6f82a3c2b57fc2cb7840a8d" />
+<symbol name="BODY" value="0bd3de4151993828bc2104d25542fbfa" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+<operation>
+<symbol name="NAME" value="removerSala" />
+<symbol name="COMPONENT" value="Clinica" />
+<symbol name="PRECONDITION" value="417e3bda37988b458d929296bc01f234" />
+<symbol name="BODY" value="f4c80d8cf922cfaa394a3045d95a32c0" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
 </operations>
 </base>
 <seen>
+<base>
+<symbol name="NAME" value="Quantidade" />
+<symbol name="TYPE" value="1" />
+<symbol name="PARAM" />
+<symbol name="CONSTRAINTS" />
+<symbol name="SEES" />
+<symbol name="INCLUDES" />
+<symbol name="IMPORTS" />
+<symbol name="PROMOTES" />
+<symbol name="EXTENDS" />
+<symbol name="USES" />
+<symbol name="SETS" />
+<symbol name="CONCRETE_VAR" />
+<symbol name="ABSTRACT_VAR" />
+<symbol name="CONCRETE_CONST" value="2e33c46aaa246567fe10967b411cd765" />
+<symbol name="ABSTRACT_CONST" />
+<symbol name="PROPERTIES" value="48c1ce2671704e760d3aeadc1f164f31" />
+<symbol name="INVARIANT" />
+<symbol name="VARIANT" />
+<symbol name="ASSERTIONS" />
+<symbol name="VALUES" />
+<operations>
+</operations>
+</base>
 </seen>
 <used>
 </used>
