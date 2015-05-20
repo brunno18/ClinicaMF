@@ -1,0 +1,13 @@
+/* HorarioI
+ * Author: Jonathan
+ * Creation date: 18/05/2015
+ */
+
+IMPLEMENTATION HorarioI
+REFINES Horario
+    
+SEES Timefields
+
+VALUES HORARIO = HORA * DIA * MES * ANO //Descobrir o que ta errado
+    
+END
