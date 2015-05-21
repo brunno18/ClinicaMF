@@ -76,8 +76,16 @@ root -> 0 [style = dotted, color = black, label="SETUP_CONSTANTS(5)", fontsize=1
 15 -> 11 [color = "#006391", label="removerPaciente(PACIENTES1)", fontsize=12];
 15 -> 20 [color = "#006391", label="addSala(SALAS2)", fontsize=12];
 15 -> 9 [color = "#006391", label="removerSala(SALAS1)", fontsize=12];
-15 -> 21 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORARIO1)--\>1", fontsize=12];
-15 -> 22 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORARIO2)--\>1", fontsize=12];
+15 -> 21 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA1,MES\n1,ANO1)--\>1", fontsize=12];
+15 -> 22 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA1,MES\n1,ANO2)--\>1", fontsize=12];
+15 -> 23 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA1,MES\n2,ANO1)--\>1", fontsize=12];
+15 -> 24 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA1,MES\n2,ANO2)--\>1", fontsize=12];
+15 -> 25 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA2,MES\n1,ANO1)--\>1", fontsize=12];
+15 -> 26 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA2,MES\n1,ANO2)--\>1", fontsize=12];
+15 -> 27 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA2,MES\n2,ANO1)--\>1", fontsize=12];
+15 -> 28 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA2,MES\n2,ANO2)--\>1", fontsize=12];
+15 -> 29 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA2,DIA1,MES\n1,ANO1)--\>1", fontsize=12];
+15 -> 30 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA2,DIA1,MES\n1,ANO2)--\>1", fontsize=12];
 
 16 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm = \{\},cp = \{\},cs = \{\},\nch = \{\},medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS2\},counter = 1,salasDisponiveis = 5,\nidConsultas = \{\}"];
 
@@ -94,10 +102,86 @@ root -> 0 [style = dotted, color = black, label="SETUP_CONSTANTS(5)", fontsize=1
 20 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm = \{\},cp = \{\},cs = \{\},\nch = \{\},medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1,SALAS2\},counter = 1,salasDisponiveis = 5,\nidConsultas = \{\}"];
 
 
-21 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = HORARIO1,medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
+21 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO1),medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
+
+21 -> 31 [color = "#006391", label="addMedico(MEDICOS2)", fontsize=12];
+21 -> 32 [color = "#006391", label="addPaciente(PACIENTES2)", fontsize=12];
+21 -> 33 [color = "#006391", label="addSala(SALAS2)", fontsize=12];
+21 -> 34 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA1,MES\n1,ANO2)--\>2", fontsize=12];
+21 -> 35 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA1,MES\n2,ANO1)--\>2", fontsize=12];
+21 -> 36 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA1,MES\n2,ANO2)--\>2", fontsize=12];
+21 -> 37 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA2,MES\n1,ANO1)--\>2", fontsize=12];
+21 -> 38 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA2,MES\n1,ANO2)--\>2", fontsize=12];
+21 -> 39 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA2,MES\n2,ANO1)--\>2", fontsize=12];
+21 -> 40 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA1,DIA2,MES\n2,ANO2)--\>2", fontsize=12];
+21 -> 41 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA2,DIA1,MES\n1,ANO1)--\>2", fontsize=12];
+21 -> 42 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA2,DIA1,MES\n1,ANO2)--\>2", fontsize=12];
+21 -> 43 [color = "#006391", label="agendarConsulta(MEDICOS1,PACIENTES1,HORA2,DIA1,MES\n2,ANO1)--\>2", fontsize=12];
+
+22 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO2),medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
 
 
-22 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = HORARIO2,medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
+23 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES2)\|-\>ANO1),medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
+
+
+24 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES2)\|-\>ANO2),medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
+
+
+25 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = (((HORA1\|-\>DIA2)\|-\>MES1)\|-\>ANO1),medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
+
+
+26 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = (((HORA1\|-\>DIA2)\|-\>MES1)\|-\>ANO2),medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
+
+
+27 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = (((HORA1\|-\>DIA2)\|-\>MES2)\|-\>ANO1),medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
+
+
+28 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = (((HORA1\|-\>DIA2)\|-\>MES2)\|-\>ANO2),medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
+
+
+29 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = (((HORA2\|-\>DIA1)\|-\>MES1)\|-\>ANO1),medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
+
+
+30 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = (((HORA2\|-\>DIA1)\|-\>MES1)\|-\>ANO2),medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
+
+
+31 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO1),medicos = \{MEDICOS1,MEDICOS2\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
+
+
+32 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO1),medicos = \{MEDICOS1\},pacientes = \{PACIENTES1,PACIENTES2\},\nsalas = \{SALAS1\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
+
+
+33 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cp(1) = PACIENTES1,cs(1) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO1),medicos = \{MEDICOS1\},pacientes = \{PACIENTES1\},\nsalas = \{SALAS1,SALAS2\},counter = 2,salasDisponiveis = 4,\nidConsultas = \{1\}"];
+
+
+34 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cm(2) = MEDICOS1,cp(1) = PACIENTES1,\ncp(2) = PACIENTES1,cs(1) = SALAS1,cs(2) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO1),ch(2) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO2),medicos = \{MEDICOS1\},\npacientes = \{PACIENTES1\},salas = \{SALAS1\},counter = 3,\nsalasDisponiveis = 3,idConsultas = \{1,2\}"];
+
+
+35 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cm(2) = MEDICOS1,cp(1) = PACIENTES1,\ncp(2) = PACIENTES1,cs(1) = SALAS1,cs(2) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO1),ch(2) = (((HORA1\|-\>DIA1)\|-\>MES2)\|-\>ANO1),medicos = \{MEDICOS1\},\npacientes = \{PACIENTES1\},salas = \{SALAS1\},counter = 3,\nsalasDisponiveis = 3,idConsultas = \{1,2\}"];
+
+
+36 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cm(2) = MEDICOS1,cp(1) = PACIENTES1,\ncp(2) = PACIENTES1,cs(1) = SALAS1,cs(2) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO1),ch(2) = (((HORA1\|-\>DIA1)\|-\>MES2)\|-\>ANO2),medicos = \{MEDICOS1\},\npacientes = \{PACIENTES1\},salas = \{SALAS1\},counter = 3,\nsalasDisponiveis = 3,idConsultas = \{1,2\}"];
+
+
+37 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cm(2) = MEDICOS1,cp(1) = PACIENTES1,\ncp(2) = PACIENTES1,cs(1) = SALAS1,cs(2) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO1),ch(2) = (((HORA1\|-\>DIA2)\|-\>MES1)\|-\>ANO1),medicos = \{MEDICOS1\},\npacientes = \{PACIENTES1\},salas = \{SALAS1\},counter = 3,\nsalasDisponiveis = 3,idConsultas = \{1,2\}"];
+
+
+38 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cm(2) = MEDICOS1,cp(1) = PACIENTES1,\ncp(2) = PACIENTES1,cs(1) = SALAS1,cs(2) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO1),ch(2) = (((HORA1\|-\>DIA2)\|-\>MES1)\|-\>ANO2),medicos = \{MEDICOS1\},\npacientes = \{PACIENTES1\},salas = \{SALAS1\},counter = 3,\nsalasDisponiveis = 3,idConsultas = \{1,2\}"];
+
+
+39 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cm(2) = MEDICOS1,cp(1) = PACIENTES1,\ncp(2) = PACIENTES1,cs(1) = SALAS1,cs(2) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO1),ch(2) = (((HORA1\|-\>DIA2)\|-\>MES2)\|-\>ANO1),medicos = \{MEDICOS1\},\npacientes = \{PACIENTES1\},salas = \{SALAS1\},counter = 3,\nsalasDisponiveis = 3,idConsultas = \{1,2\}"];
+
+
+40 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cm(2) = MEDICOS1,cp(1) = PACIENTES1,\ncp(2) = PACIENTES1,cs(1) = SALAS1,cs(2) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO1),ch(2) = (((HORA1\|-\>DIA2)\|-\>MES2)\|-\>ANO2),medicos = \{MEDICOS1\},\npacientes = \{PACIENTES1\},salas = \{SALAS1\},counter = 3,\nsalasDisponiveis = 3,idConsultas = \{1,2\}"];
+
+
+41 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cm(2) = MEDICOS1,cp(1) = PACIENTES1,\ncp(2) = PACIENTES1,cs(1) = SALAS1,cs(2) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO1),ch(2) = (((HORA2\|-\>DIA1)\|-\>MES1)\|-\>ANO1),medicos = \{MEDICOS1\},\npacientes = \{PACIENTES1\},salas = \{SALAS1\},counter = 3,\nsalasDisponiveis = 3,idConsultas = \{1,2\}"];
+
+
+42 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cm(2) = MEDICOS1,cp(1) = PACIENTES1,\ncp(2) = PACIENTES1,cs(1) = SALAS1,cs(2) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO1),ch(2) = (((HORA2\|-\>DIA1)\|-\>MES1)\|-\>ANO2),medicos = \{MEDICOS1\},\npacientes = \{PACIENTES1\},salas = \{SALAS1\},counter = 3,\nsalasDisponiveis = 3,idConsultas = \{1,2\}"];
+
+
+43 [shape=box, color="#F4E3C1", fontsize=12, penwidth=2, label="cm(1) = MEDICOS1,cm(2) = MEDICOS1,cp(1) = PACIENTES1,\ncp(2) = PACIENTES1,cs(1) = SALAS1,cs(2) = SALAS1,\nch(1) = (((HORA1\|-\>DIA1)\|-\>MES1)\|-\>ANO1),ch(2) = (((HORA2\|-\>DIA1)\|-\>MES2)\|-\>ANO1),medicos = \{MEDICOS1\},\npacientes = \{PACIENTES1\},salas = \{SALAS1\},counter = 3,\nsalasDisponiveis = 3,idConsultas = \{1,2\}"];
 
 
 }

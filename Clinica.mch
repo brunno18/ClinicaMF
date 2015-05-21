@@ -1,15 +1,9 @@
-/* Clinica
- * Author: bruno e jonathan
- * Creation date: 18/05/2015
- */
 MACHINE
     Clinica
     
-SETS MEDICOS; PACIENTES; SALAS
-    
-SEES Capacidade
+SETS MEDICOS; PACIENTES; SALAS    
+SEES Capacidade, Timefields
 
-INCLUDES Horario
 
 VARIABLES cm, cp, cs, ch, medicos, pacientes, salas, salasDisponiveis, counter, idConsultas
 
@@ -22,7 +16,7 @@ INVARIANT medicos <: MEDICOS &
           cm : idConsultas --> medicos & 
           cp : idConsultas --> pacientes &
           cs : idConsultas --> salas &
-          ch : idConsultas --> HORARIO
+          ch : idConsultas --> (HORA * DIA * MES * ANO)
 
 INITIALISATION cm := {} || cp := {} || cs := {} || ch := {} || medicos := {} || pacientes := {} || salas := {} 
               	|| counter := 1 || salasDisponiveis := capacidade || idConsultas := {}
@@ -59,31 +53,32 @@ OPERATIONS
         THEN salas := salas - {ss}
         END;
         
-    identificador <-- agendarConsulta ( mm, pp, hh ) =
-		PRE hh : HORARIO & mm : medicos & pp : pacientes & hh /: ran(ch) & mm /: cm[dom(ch |> {hh})] & pp /: cp[dom(ch |> {hh})]
+    identificador <-- agendarConsulta ( mm, pp, hora, dia, mes, ano ) =
+		PRE hora : HORA & dia : DIA & mes : MES & ano : ANO & mm : medicos & pp : pacientes & mm /: cm[dom(ch |> {(hora, dia, mes, ano)})] & pp /: cp[dom(ch |> {(hora, dia, mes, ano)})]
 		THEN
 		    IF salasDisponiveis > 0
            		    THEN
            		        identificador := counter ||
 			idConsultas := idConsultas \/ {counter} ||
               			cm(counter) := mm ||
-                			ch(counter) := hh ||
+                			ch(counter) := (hora, dia, mes, ano) ||
                 			cp(counter) := pp ||
-                			ANY sala WHERE sala : salas & sala /: cs[dom(ch |> {hh})] THEN cs(counter) := sala END ||
+                			ANY sala WHERE sala : salas & sala /: cs[dom(ch |> {(hora, dia, mes, ano)})] THEN cs(counter) := sala END ||
                			salasDisponiveis := salasDisponiveis - 1 || 
                 			counter := counter + 1
             		    END
 		END;
 	
-	desmarcarConsulta ( mm, pp, hh, pos) =
-		PRE pos : NAT1 & pos : idConsultas & pos : (dom(cm |> {mm}) /\ dom(cp |> {pp}) /\ dom(ch |> {hh})) 
-			& hh : HORARIO & hh : ran(ch) & mm : cm[dom(ch |> {hh})] & pp : cp[dom(ch |> {hh})] 
+	desmarcarConsulta ( mm, pp, hora, dia, mes, ano) =
+		PRE  hora : HORA & dia : DIA & mes : MES & ano : ANO & mm : medicos & pp : pacientes	& mm : cm[dom(ch |> {(hora, dia, mes, ano)})] & pp : cp[dom(ch |> {(hora, dia, mes, ano)})] 
 		THEN
+			ANY pos WHERE pos : ((dom(cm |> {mm}) /\ dom(cp |> {pp}) /\ dom(ch |> {(hora, dia, mes, ano)}))) THEN
 			cm := cm - {(pos |-> mm)} ||
-			ch := ch - {(pos |-> hh)} ||
+			ch := ch - {(pos |-> (hora, dia, mes, ano))} ||
 			cp := cp - {(pos |-> pp)} ||
 			cs := {pos} <<| cs ||
 			idConsultas := idConsultas - {pos} ||
 			salasDisponiveis := salasDisponiveis + 1 
+			END
 		END
 END
