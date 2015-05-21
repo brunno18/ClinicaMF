@@ -75,12 +75,13 @@ OPERATIONS
                 END
         END;
         
-     desmarcarConsulta (mm, pp, hh, id) =
-         PRE mm : medicos & pp : pacientes & hh : NAT & id : NAT1
+     desmarcarConsulta (mm, pp, hh, pos) =
+         PRE mm : medicos & pp : pacientes & hh : NAT & pos : NAT
          THEN 
-             cm := cm /|\ id -1 ^ cm \|/ id ||
-             cp := cp /|\ id -1 ^ cp \|/ id ||
-             ch := ch /|\ id -1 ^ ch \|/ id ||
-             cs := cs /|\ id -1 ^ cs \|/ id
+             
+             cm := cm /|\ pos -1 ^ cm \|/ pos ||
+             cp := cp /|\ pos -1 ^ cp \|/ pos ||
+             ch := ch /|\ pos -1 ^ ch \|/ pos ||
+             cs := cs /|\ pos -1 ^ cs \|/ pos
          END;
 END
