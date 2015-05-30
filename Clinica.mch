@@ -7,7 +7,8 @@ INCLUDES Medico, Paciente, Sala
     
 VARIABLES cm, cp, cs, chora, cdia, cmes, cano, counter, idConsultas
     
-INVARIANT card(salas) <= capacidade &
+INVARIANT 
+    card(salas) <= capacidade &
     counter : NAT & 
     idConsultas <: NAT1 &
     cm : idConsultas --> medicos & 
@@ -18,7 +19,16 @@ INVARIANT card(salas) <= capacidade &
     cmes : idConsultas --> MES &
     cano : idConsultas --> ANO
     
-INITIALISATION cm := {} || cp := {} || cs := {} || cdia := {} || chora := {} || cmes := {} || cano := {} || counter := 1 || idConsultas := {}
+INITIALISATION 
+    cm := {} || 
+    cp := {} || 
+    cs := {} || 
+    cdia := {} || 
+    chora := {} || 
+    cmes := {} || 
+    cano := {} || 
+    counter := 1 || 
+    idConsultas := {}
     
 OPERATIONS
     
@@ -53,26 +63,61 @@ OPERATIONS
     END;
     
     identificador <-- agendarConsulta ( mm, pp, hora, dia, mes, ano ) =
-    PRE hora : HORA & dia : DIA & mes : MES & ano : ANO & mm : medicos & pp : pacientes & mm /: cm[dom(chora |> {(hora)})] & pp /: cp[{(dom(chora |> {hora}) /\ dom(cdia |> {dia}) /\ dom(cmes |> {mes}) /\ dom(cano |> {ano}))}]
+    PRE 
+        hora : HORA & 
+        dia : DIA & 
+        mes : MES & 
+        ano : ANO & 
+        mm : medicos & 
+        pp : pacientes & 
+        mm /: cm[(dom(chora |> {hora}) /\ dom(cdia |> {dia}) /\ dom(cmes |> {mes}) /\ dom(cano |> {ano}))] & 
+        pp /: cp[(dom(chora |> {hora}) /\ dom(cdia |> {dia}) /\ dom(cmes |> {mes}) /\ dom(cano |> {ano}))]
     THEN
-        ANY sala WHERE sala : salas & sala /: cs[dom(ch |> {(hora, dia, mes, ano)})] THEN
+        ANY sala 
+        WHERE sala : salas & 
+        sala /: cs[(dom(chora |> {hora}) /\ dom(cdia |> {dia}) /\ dom(cmes |> {mes}) /\ dom(cano |> {ano}))] 
+        THEN
             identificador := counter ||
             idConsultas := idConsultas \/ {counter} ||
             cm(counter) := mm ||
-            ch(counter) := (hora, dia, mes, ano) ||
             cp(counter) := pp ||
+            chora(counter) := hora ||
+            cdia(counter) := dia ||
+            cmes(counter) := mes ||
+            cano(counter) := ano ||
             cs(counter) := sala ||
             counter := counter + 1
         END
     END;
     
     desmarcarConsulta ( mm, pp, hora, dia, mes, ano) =
-    PRE  hora : HORA & dia : DIA & mes : MES & ano : ANO & mm : medicos & pp : pacientes	& mm : cm[dom(ch |> {(hora, dia, mes, ano)})] & pp : cp[dom(ch |> {(hora, dia, mes, ano)})] 
+    PRE  
+        hora : HORA & 
+        dia : DIA & 
+        mes : MES & 
+        ano : ANO & 
+        mm : medicos & 
+        pp : pacientes	&
+        mm : cm[(dom(chora |> {hora}) /\ dom(cdia |> {dia}) /\ dom(cmes |> {mes}) /\ dom(cano |> {ano}))] & 
+        pp : cp[(dom(chora |> {hora}) /\ dom(cdia |> {dia}) /\ dom(cmes |> {mes}) /\ dom(cano |> {ano}))]
     THEN
-        ANY pos WHERE pos : ((dom(cm |> {mm}) /\ dom(cp |> {pp}) /\ dom(ch |> {(hora, dia, mes, ano)}))) THEN
+        ANY pos 
+        WHERE 
+            pos : (
+                      dom(cm |> {mm}) /\ 
+                      dom(cp |> {pp}) /\ 
+                      dom(chora |> {hora}) /\ 
+                      dom(cdia |> {dia}) /\ 
+                      dom(cmes |> {mes}) /\ 
+                      dom(cano |> {ano})
+                  )
+        THEN
             cm := cm - {(pos |-> mm)} ||
-            ch := ch - {(pos |-> (hora, dia, mes, ano))} ||
             cp := cp - {(pos |-> pp)} ||
+            chora := chora - {(pos |-> hora)} ||
+            cdia := cdia - {(pos |-> dia)} ||
+            cmes := cmes - {(pos |-> mes)} ||
+            cano := cano - {(pos |-> ano)} ||
             cs := {pos} <<| cs ||
             idConsultas := idConsultas - {pos}
         END
