@@ -15,9 +15,9 @@ OPERATIONS
         THEN medicos := medicos \/ {mm}
         END;
     
-    m1 <-- removerMedico (mm) =
+    removerMedico (mm) =
         PRE mm : medicos
-        THEN m1 := mm || medicos := medicos - {mm}
+        THEN medicos := medicos - {mm}
         END
     
 END

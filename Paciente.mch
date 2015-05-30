@@ -15,9 +15,9 @@ OPERATIONS
         THEN pacientes := pacientes \/ {pp}
         END;
     
-    p1 <-- removerPaciente (pp) =
+    removerPaciente (pp) =
         PRE pp : pacientes
-        THEN p1 := pp || pacientes := pacientes - {pp}
+        THEN pacientes := pacientes - {pp}
         END
     
 END

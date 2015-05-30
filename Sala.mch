@@ -15,9 +15,9 @@ OPERATIONS
         THEN salas := salas \/ {ss}
         END;
     
-    s1 <-- removerMedico (ss) =
+    removerSala (ss) =
         PRE ss : salas
-        THEN s1 := ss || salas := salas - {ss}
+        THEN salas := salas - {ss}
         END
     
 END
