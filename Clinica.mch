@@ -112,14 +112,15 @@ OPERATIONS
                       dom(cano |> {ano})
                   )
         THEN
-            cm := cm - {(pos |-> mm)} ||
-            cp := cp - {(pos |-> pp)} ||
-            chora := chora - {(pos |-> hora)} ||
-            cdia := cdia - {(pos |-> dia)} ||
-            cmes := cmes - {(pos |-> mes)} ||
-            cano := cano - {(pos |-> ano)} ||
-            cs := {pos} <<| cs ||
-            idConsultas := idConsultas - {pos}
+            cm    := (cm    /|\ (pos-1)) ^ (cm    \|/ pos) ||
+            cp    := (cp    /|\ (pos-1)) ^ (cp    \|/ pos) || 
+            chora := (chora /|\ (pos-1)) ^ (chora \|/ pos) || 
+            cdia  := (cdia  /|\ (pos-1)) ^ (cdia  \|/ pos) || 
+            cmes  := (cmes  /|\ (pos-1)) ^ (cmes  \|/ pos) || 
+            cano  := (cano  /|\ (pos-1)) ^ (cano  \|/ pos) || 
+            cs    := (cs    /|\ (pos-1)) ^ (cs    \|/ pos) || 
+            idConsultas := idConsultas - {counter-1} ||
+            counter := counter - 1
         END
     END
 END
