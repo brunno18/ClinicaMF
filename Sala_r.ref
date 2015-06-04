@@ -1,0 +1,30 @@
+/* Sala_r
+* Author: Jonathan
+* Creation date: 03/06/2015
+*/
+
+REFINEMENT Sala_r
+REFINES Sala
+    
+VARIABLES salasr, counter
+    
+INVARIANT counter : 0..100 & salasr : 1..100 >-> SALAS & salas = salasr[1..counter]
+    
+INITIALISATION salasr := [] || counter := 0
+    
+OPERATIONS
+    addSala (ss) =
+    PRE ss : SALAS & ss /: ran(salasr) & counter <= 99
+    THEN
+        counter := counter + 1;
+        salasr(counter) := ss
+    END;
+    
+    removerSala(ss) =
+    PRE ss : ran(salasr) & counter >= 0
+    THEN
+        salasr := salasr \|/ salasr~(ss) - 1 ^ salasr /|\ salasr~(ss);
+        counter := counter - 1
+    END
+    
+END

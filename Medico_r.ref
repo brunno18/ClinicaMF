@@ -1,0 +1,30 @@
+/* Medico_r
+* Author: Jonathan
+* Creation date: 01/06/2015
+*/
+
+REFINEMENT Medico_r
+REFINES Medico
+    
+VARIABLES medicosr, counter
+    
+INVARIANT medicosr : 1..100 >-> MEDICOS & counter : 0..100 & medicos = medicosr[1..counter] 
+    
+INITIALISATION medicosr := [] || counter := 0
+    
+OPERATIONS
+    addMedico (mm) =
+    PRE mm : MEDICOS & mm /: ran(medicosr) & counter < 99
+    THEN
+        counter := counter + 1;
+        medicosr(counter) := mm
+    END;
+    
+    removerMedico (mm) =
+    PRE mm : ran(medicosr) & counter > 0
+    THEN
+        medicosr := medicosr \|/ medicosr~(mm) - 1 ^ medicosr /|\ medicosr~(mm);
+        counter := counter - 1  
+    END
+    
+END

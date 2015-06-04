@@ -1,0 +1,10 @@
+/* Clinica_r
+ * Author: Jonathan
+ * Creation date: 04/06/2015
+ */
+REFINEMENT
+    Clinica_r
+REFINES Clinica
+SEES Capacidade, Timefields
+
+END

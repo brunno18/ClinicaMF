@@ -1,0 +1,30 @@
+/* Paciente_r
+* Author: Jonathan
+* Creation date: 03/06/2015
+*/
+
+REFINEMENT Paciente_r
+REFINES Paciente
+    
+VARIABLES pacientesr, counter
+    
+INVARIANT pacientesr : 1..100 >-> PACIENTES & counter : 0..100 & pacientes = pacientesr[1..counter]
+    
+INITIALISATION pacientesr := [] || counter := 0
+    
+OPERATIONS
+    addPaciente (pp) =
+    PRE pp : PACIENTES & pp /: ran(pacientesr) & counter < 99
+    THEN
+        counter := counter + 1;
+        pacientesr(counter) := pp
+    END;
+    
+    removerPaciente (pp) =
+    PRE pp : ran(pacientesr) & counter > 0
+    THEN
+        pacientesr := pacientesr \|/ pacientesr~(pp) - 1 ^ pacientesr /|\ pacientesr~(pp);
+        counter := counter - 1
+    END
+    
+END
