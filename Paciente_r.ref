@@ -5,26 +5,27 @@
 
 REFINEMENT Paciente_r
 REFINES Paciente
+SEES Answer
+VARIABLES pacientesr
+
+INVARIANT pacientesr : PACIENTES --> ANSWER & pacientes = dom(pacientesr |> {yes}) 
     
-VARIABLES pacientesr, counter
+INITIALISATION pacientesr := PACIENTES * {no} 
     
-INVARIANT pacientesr : 1..100 >-> PACIENTES & counter : 0..100 & pacientes = pacientesr[1..counter]
-    
-INITIALISATION pacientesr := [] || counter := 0
-    
-OPERATIONS
-    addPaciente (pp) =
-    PRE pp : PACIENTES & pp /: ran(pacientesr) & counter < 99
-    THEN
-        counter := counter + 1;
-        pacientesr(counter) := pp
+OPERATIONS 
+    addPaciente (pp) = 
+    PRE pp : PACIENTES & pacientesr(pp) = no 
+    THEN 
+        pacientesr(pp) := yes 
     END;
     
     removerPaciente (pp) =
-    PRE pp : ran(pacientesr) & counter > 0
+    PRE pp : PACIENTES
     THEN
-        pacientesr := pacientesr \|/ pacientesr~(pp) - 1 ^ pacientesr /|\ pacientesr~(pp);
-        counter := counter - 1
+        IF pacientesr(pp) = yes 
+        THEN 
+            pacientesr(pp) := no
+        END
     END
     
 END

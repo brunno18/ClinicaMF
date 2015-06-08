@@ -3,28 +3,29 @@
 * Creation date: 01/06/2015
 */
 
-REFINEMENT Medico_r
-REFINES Medico
+REFINEMENT Medico_r 
+REFINES Medico 
+SEES Answer
+VARIABLES medicosr 
+
+INVARIANT medicosr: MEDICOS --> ANSWER & medicos = dom(medicosr |> {yes}) 
     
-VARIABLES medicosr, counter
+INITIALISATION medicosr := MEDICOS * {no} 
     
-INVARIANT medicosr : 1..100 >-> MEDICOS & counter : 0..100 & medicos = medicosr[1..counter] 
-    
-INITIALISATION medicosr := [] || counter := 0
-    
-OPERATIONS
-    addMedico (mm) =
-    PRE mm : MEDICOS & mm /: ran(medicosr) & counter < 99
-    THEN
-        counter := counter + 1;
-        medicosr(counter) := mm
+OPERATIONS 
+    addMedico (mm) = 
+    PRE mm : MEDICOS & medicosr(mm) = no 
+    THEN 
+        medicosr(mm) := yes 
     END;
     
     removerMedico (mm) =
-    PRE mm : ran(medicosr) & counter > 0
+    PRE mm : MEDICOS
     THEN
-        medicosr := medicosr \|/ medicosr~(mm) - 1 ^ medicosr /|\ medicosr~(mm);
-        counter := counter - 1  
+        IF medicosr(mm) = yes 
+        THEN
+            medicosr(mm) := no
+        END
     END
     
 END

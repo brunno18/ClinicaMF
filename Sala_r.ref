@@ -5,26 +5,29 @@
 
 REFINEMENT Sala_r
 REFINES Sala
+
+SEES Answer
     
-VARIABLES salasr, counter
+VARIABLES salasr
+
+INVARIANT salasr: SALAS --> ANSWER & salas = dom(salasr |> {yes}) 
     
-INVARIANT counter : 0..100 & salasr : 1..100 >-> SALAS & salas = salasr[1..counter]
+INITIALISATION salasr := SALAS * {no} 
     
-INITIALISATION salasr := [] || counter := 0
-    
-OPERATIONS
-    addSala (ss) =
-    PRE ss : SALAS & ss /: ran(salasr) & counter <= 99
-    THEN
-        counter := counter + 1;
-        salasr(counter) := ss
+OPERATIONS 
+    addSala (ss) = 
+    PRE ss : SALAS & salasr(ss) = no 
+    THEN 
+        salasr(ss) := yes 
     END;
     
-    removerSala(ss) =
-    PRE ss : ran(salasr) & counter >= 0
+    removerSala (ss) =
+    PRE ss : SALAS
     THEN
-        salasr := salasr \|/ salasr~(ss) - 1 ^ salasr /|\ salasr~(ss);
-        counter := counter - 1
+        IF salasr(ss) = yes
+        THEN 
+            salasr(ss) := no
+        END
     END
     
 END
