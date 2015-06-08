@@ -1,0 +1,33 @@
+﻿/* Sala_r
+* Author: Jonathan
+* Creation date: 03/06/2015
+*/
+
+REFINEMENT Sala_r
+REFINES Sala
+
+SEES Answer
+
+ABSTRACT_VARIABLES salasr
+
+INVARIANT salasr : SALAS --> ANSWER & salas = dom ( salasr |> { yes } )
+
+INITIALISATION salasr := SALAS * { no }
+
+OPERATIONS
+    addSala ( ss ) =
+    PRE ss : SALAS & salasr ( ss ) = no
+    THEN
+        salasr ( ss ) := yes
+    END ;
+
+    removerSala ( ss ) =
+    PRE ss : SALAS
+    THEN
+        IF salasr ( ss ) = yes
+        THEN
+            salasr ( ss ) := no
+        END
+    END
+
+END

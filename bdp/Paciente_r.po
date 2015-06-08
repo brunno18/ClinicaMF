@@ -1,0 +1,51 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(30) & WellDefinedness_removerPaciente.2,(_f(26) => _f(28));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(30) & WellDefinedness_removerPaciente.1,(_f(26) => _f(27));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & WellDefinedness_Precondition_addPaciente.2,(_f(25) & _f(26) => _f(28));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & WellDefinedness_Precondition_addPaciente.1,(_f(25) & _f(26) => _f(27));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(16) & removerPaciente.3,(_f(18) & _f(4) & _f(7) => _f(21));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(16) & removerPaciente.2,(_f(17) & _f(4) & _f(7) => _f(20));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(16) & removerPaciente.1,(_f(17) & _f(4) & _f(5) => _f(19));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(11) & addPaciente.3,(_f(4) & _f(7) => _f(15));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(11) & addPaciente.2,(_f(4) & _f(5) => _f(14));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(11) & addPaciente.1,(_f(12) => _f(13));
+_f(1) & _f(2) & _f(3) & Initialisation.2,(_f(4) & _f(7) => _f(8));
+_f(1) & _f(2) & _f(3) & Initialisation.1,(_f(4) & _f(5) => _f(6))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+((1..2)*{ANSWER}): FIN(NATURAL*{ANSWER}) & not(((1..2)*{ANSWER}) = {});
+PACIENTES: FIN(INTEGER) & not(PACIENTES = {});
+"Refinement is correct";
+"Check invariant ((pacientesr$1) : (((PACIENTES) --> (ANSWER))))";
+(((PACIENTES * {(2|->ANSWER)})) : (((PACIENTES) --> (((1..2)*{ANSWER})))));
+"Check invariant ((pacientes) = (dom(((pacientesr$1) |> ({yes})))))";
+(({}) = (dom((((PACIENTES * {(2|->ANSWER)})) |> ({(1|->ANSWER)})))));
+pacientes : POW( PACIENTES);
+pacientesr$1 : PACIENTES +-> ((1..2)*{ANSWER}) & dom(pacientesr$1) = PACIENTES & ((pacientesr$1) : (((PACIENTES) --> (((1..2)*{ANSWER}))))) & ((pacientes) = (dom(((pacientesr$1) |> ({(1|->ANSWER)})))));
+((pp) : (PACIENTES)) & not(pp : pacientes);
+"Precondition can be deduced";
+(((pacientesr$1 )(pp)) = ((2|->ANSWER)));
+((((pacientesr$1) <+ ({((pp) |-> ((1|->ANSWER)))}))) : (((PACIENTES) --> (((1..2)*{ANSWER})))));
+((((pacientes) \/ ({pp}))) = (dom(((((pacientesr$1) <+ ({((pp) |-> ((1|->ANSWER)))}))) |> ({(1|->ANSWER)})))));
+((pp) : (PACIENTES)) & ((pp) : (pacientes));
+(((pacientesr$1 )(pp)) = ((1|->ANSWER)));
+not((((pacientesr$1 )(pp)) = ((1|->ANSWER))));
+((((pacientesr$1) <+ ({((pp) |-> ((2|->ANSWER)))}))) : (((PACIENTES) --> (((1..2)*{ANSWER})))));
+(((pacientes - {pp})) = (dom(((((pacientesr$1) <+ ({((pp) |-> ((2|->ANSWER)))}))) |> ({(1|->ANSWER)})))));
+(((pacientes - {pp})) = (dom(((pacientesr$1) |> ({(1|->ANSWER)})))));
+pacientesr$1 : PACIENTES +-> ((1..2)*{ANSWER});
+dom(pacientesr$1) = PACIENTES;
+((pacientesr$1) : (((PACIENTES) --> (((1..2)*{ANSWER})))));
+((pp) : (PACIENTES));
+"Well definedness";
+((pp) : (dom(pacientesr$1)));
+((pacientesr$1) : (((dom(pacientesr$1)) +-> (ran(pacientesr$1)))));
+((pp) : (PACIENTES)) & not(pp : pacientes) & ((pp) : (PACIENTES)) & (((pacientesr$1 )(pp)) = ((2|->ANSWER)));
+((pp) : (PACIENTES)) & ((pp) : (pacientes)) & ((pp) : (PACIENTES))
+END
+&
+THEORY EnumerateX IS
+ANSWER == {yes,no}
+END

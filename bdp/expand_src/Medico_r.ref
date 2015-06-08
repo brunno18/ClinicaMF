@@ -1,0 +1,31 @@
+﻿/* Medico_r
+* Author: Jonathan
+* Creation date: 01/06/2015
+*/
+
+REFINEMENT Medico_r
+REFINES Medico
+SEES Answer
+ABSTRACT_VARIABLES medicosr
+
+INVARIANT medicosr : MEDICOS --> ANSWER & medicos = dom ( medicosr |> { yes } )
+
+INITIALISATION medicosr := MEDICOS * { no }
+
+OPERATIONS
+    addMedico ( mm ) =
+    PRE mm : MEDICOS & medicosr ( mm ) = no
+    THEN
+        medicosr ( mm ) := yes
+    END ;
+
+    removerMedico ( mm ) =
+    PRE mm : MEDICOS
+    THEN
+        IF medicosr ( mm ) = yes
+        THEN
+            medicosr ( mm ) := no
+        END
+    END
+
+END

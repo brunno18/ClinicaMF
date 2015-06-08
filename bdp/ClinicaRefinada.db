@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\expand_src" old_decomp_dir="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\src">
+        <!-- Definition directory list -->
+        <!-- Component file list -->
+        <component_file path="C:/Users/bruno/Documents/AtelierB/teste4/ClinicaRefinada" name="Answer" suffix="mch" user="bruno">
+            <component name="Answer" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/bruno/Documents/AtelierB/teste4/ClinicaRefinada" name="Capacidade" suffix="mch" user="bruno">
+            <component name="Capacidade" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/bruno/Documents/AtelierB/teste4/ClinicaRefinada" name="Clinica" suffix="mch" user="bruno">
+            <component name="Clinica" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/bruno/Documents/AtelierB/teste4/ClinicaRefinada" name="Clinica_r" suffix="ref" user="bruno">
+            <component name="Clinica_r" type="refinement" />
+        </component_file>
+        <component_file path="C:/Users/bruno/Documents/AtelierB/teste4/ClinicaRefinada" name="Horario" suffix="mch" user="bruno">
+            <component name="Horario" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/bruno/Documents/AtelierB/teste4/ClinicaRefinada" name="Medico" suffix="mch" user="bruno">
+            <component name="Medico" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/bruno/Documents/AtelierB/teste4/ClinicaRefinada" name="Medico_r" suffix="ref" user="bruno">
+            <component name="Medico_r" type="refinement" />
+        </component_file>
+        <component_file path="C:/Users/bruno/Documents/AtelierB/teste4/ClinicaRefinada" name="Paciente" suffix="mch" user="bruno">
+            <component name="Paciente" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/bruno/Documents/AtelierB/teste4/ClinicaRefinada" name="Paciente_r" suffix="ref" user="bruno">
+            <component name="Paciente_r" type="refinement" />
+        </component_file>
+        <component_file path="C:/Users/bruno/Documents/AtelierB/teste4/ClinicaRefinada" name="Sala" suffix="mch" user="bruno">
+            <component name="Sala" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/bruno/Documents/AtelierB/teste4/ClinicaRefinada" name="Sala_r" suffix="ref" user="bruno">
+            <component name="Sala_r" type="refinement" />
+        </component_file>
+        <component_file path="C:/Users/bruno/Documents/AtelierB/teste4/ClinicaRefinada" name="Timefields" suffix="mch" user="bruno">
+            <component name="Timefields" type="specification" />
+        </component_file>
+        <component_file path="C:/Users/bruno/Documents/AtelierB/teste4/ClinicaRefinada" name="TimefieldsI" suffix="imp" user="bruno">
+            <component name="TimefieldsI" type="implementation" />
+        </component_file>
+    </project>
+</db_xml>

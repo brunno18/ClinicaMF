@@ -1,0 +1,18 @@
+<Machine name='Horario' type='abstraction'>
+<Sets>
+<Set>
+<Id value='HORARIO' typref='1040654749'/>
+</Set>
+</Sets>
+<Initialisation>
+<Skip/>
+</Initialisation>
+<TypeInfos>
+<Type id='1040654749'>
+<Unary_Exp op='POW'>
+<Id value='HORARIO'/>
+</Unary_Exp>
+</Type>
+</TypeInfos>
+
+</Machine>

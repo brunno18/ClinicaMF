@@ -1,0 +1,49 @@
+<Machine name='TimefieldsI' type='implementation'>
+<Abstraction>Timefields</Abstraction>
+<Values>
+<Valuation ident='HORA' typref='3603043417'>
+<Nary_Exp op='{' typref='3603043417'>
+<Integer_Literal value='8' typref='2701647786'/>
+<Integer_Literal value='9' typref='2701647786'/>
+<Integer_Literal value='10' typref='2701647786'/>
+<Integer_Literal value='11' typref='2701647786'/>
+<Integer_Literal value='14' typref='2701647786'/>
+<Integer_Literal value='15' typref='2701647786'/>
+<Integer_Literal value='16' typref='2701647786'/>
+<Integer_Literal value='17' typref='2701647786'/>
+</Nary_Exp>
+</Valuation>
+<Valuation ident='DIA' typref='3603043417'>
+<Binary_Exp op='..' typref='3603043417'>
+<Integer_Literal value='1' typref='2701647786'/>
+<Integer_Literal value='31' typref='2701647786'/>
+</Binary_Exp>
+</Valuation>
+<Valuation ident='MES' typref='3603043417'>
+<Binary_Exp op='..' typref='3603043417'>
+<Integer_Literal value='1' typref='2701647786'/>
+<Integer_Literal value='12' typref='2701647786'/>
+</Binary_Exp>
+</Valuation>
+<Valuation ident='ANO' typref='3603043417'>
+<Binary_Exp op='..' typref='3603043417'>
+<Integer_Literal value='2015' typref='2701647786'/>
+<Integer_Literal value='2020' typref='2701647786'/>
+</Binary_Exp>
+</Valuation>
+</Values>
+<Initialisation>
+<Skip/>
+</Initialisation>
+<TypeInfos>
+<Type id='3603043417'>
+<Unary_Exp op='POW'>
+<Id value='INTEGER'/>
+</Unary_Exp>
+</Type>
+<Type id='2701647786'>
+<Id value='INTEGER'/>
+</Type>
+</TypeInfos>
+
+</Machine>

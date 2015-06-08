@@ -1,0 +1,51 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(30) & WellDefinedness_removerSala.2,(_f(26) => _f(28));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(30) & WellDefinedness_removerSala.1,(_f(26) => _f(27));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & WellDefinedness_Precondition_addSala.2,(_f(25) & _f(26) => _f(28));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & WellDefinedness_Precondition_addSala.1,(_f(25) & _f(26) => _f(27));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(16) & removerSala.3,(_f(18) & _f(4) & _f(7) => _f(21));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(16) & removerSala.2,(_f(17) & _f(4) & _f(7) => _f(20));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(16) & removerSala.1,(_f(17) & _f(4) & _f(5) => _f(19));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(11) & addSala.3,(_f(4) & _f(7) => _f(15));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(11) & addSala.2,(_f(4) & _f(5) => _f(14));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & _f(11) & addSala.1,(_f(12) => _f(13));
+_f(1) & _f(2) & _f(3) & Initialisation.2,(_f(4) & _f(7) => _f(8));
+_f(1) & _f(2) & _f(3) & Initialisation.1,(_f(4) & _f(5) => _f(6))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+((1..2)*{ANSWER}): FIN(NATURAL*{ANSWER}) & not(((1..2)*{ANSWER}) = {});
+SALAS: FIN(INTEGER) & not(SALAS = {});
+"Refinement is correct";
+"Check invariant ((salasr$1) : (((SALAS) --> (ANSWER))))";
+(((SALAS * {(2|->ANSWER)})) : (((SALAS) --> (((1..2)*{ANSWER})))));
+"Check invariant ((salas) = (dom(((salasr$1) |> ({yes})))))";
+(({}) = (dom((((SALAS * {(2|->ANSWER)})) |> ({(1|->ANSWER)})))));
+salas : POW( SALAS);
+salasr$1 : SALAS +-> ((1..2)*{ANSWER}) & dom(salasr$1) = SALAS & ((salasr$1) : (((SALAS) --> (((1..2)*{ANSWER}))))) & ((salas) = (dom(((salasr$1) |> ({(1|->ANSWER)})))));
+((ss) : (SALAS)) & not(ss : salas);
+"Precondition can be deduced";
+(((salasr$1 )(ss)) = ((2|->ANSWER)));
+((((salasr$1) <+ ({((ss) |-> ((1|->ANSWER)))}))) : (((SALAS) --> (((1..2)*{ANSWER})))));
+((((salas) \/ ({ss}))) = (dom(((((salasr$1) <+ ({((ss) |-> ((1|->ANSWER)))}))) |> ({(1|->ANSWER)})))));
+((ss) : (SALAS)) & ((ss) : (salas));
+(((salasr$1 )(ss)) = ((1|->ANSWER)));
+not((((salasr$1 )(ss)) = ((1|->ANSWER))));
+((((salasr$1) <+ ({((ss) |-> ((2|->ANSWER)))}))) : (((SALAS) --> (((1..2)*{ANSWER})))));
+(((salas - {ss})) = (dom(((((salasr$1) <+ ({((ss) |-> ((2|->ANSWER)))}))) |> ({(1|->ANSWER)})))));
+(((salas - {ss})) = (dom(((salasr$1) |> ({(1|->ANSWER)})))));
+salasr$1 : SALAS +-> ((1..2)*{ANSWER});
+dom(salasr$1) = SALAS;
+((salasr$1) : (((SALAS) --> (((1..2)*{ANSWER})))));
+((ss) : (SALAS));
+"Well definedness";
+((ss) : (dom(salasr$1)));
+((salasr$1) : (((dom(salasr$1)) +-> (ran(salasr$1)))));
+((ss) : (SALAS)) & not(ss : salas) & ((ss) : (SALAS)) & (((salasr$1 )(ss)) = ((2|->ANSWER)));
+((ss) : (SALAS)) & ((ss) : (salas)) & ((ss) : (SALAS))
+END
+&
+THEORY EnumerateX IS
+ANSWER == {yes,no}
+END

@@ -1,0 +1,108 @@
+<Machine name='Medico' type='abstraction'>
+<Sets>
+<Set>
+<Id value='MEDICOS' typref='238471813'/>
+</Set>
+</Sets>
+<Abstract_Variables>
+<Id value='medicos' typref='238471813'/>
+</Abstract_Variables>
+<Invariant>
+<Exp_Comparison op='&lt;:'>
+<Id value='medicos' typref='238471813'/>
+<Id value='MEDICOS' typref='238471813'/>
+</Exp_Comparison>
+</Invariant>
+<Initialisation>
+<Assignement_Sub>
+<Variables>
+<Id value='medicos' typref='238471813'/>
+</Variables>
+<Values>
+<EmptySet typref='3817003670'/>
+</Values>
+</Assignement_Sub>
+</Initialisation>
+<Operations>
+<Operation name='addMedico'>
+<Input_Parameters>
+<Id value='mm' typref='2669468286'/>
+</Input_Parameters>
+<Precondition>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Id value='mm' typref='2669468286'/>
+<Id value='MEDICOS' typref='238471813'/>
+</Exp_Comparison>
+<Exp_Comparison op='/:'>
+<Id value='mm' typref='2669468286'/>
+<Id value='medicos' typref='238471813'/>
+</Exp_Comparison>
+</Nary_Pred>
+</Precondition>
+<Body>
+<Assignement_Sub>
+<Variables>
+<Id value='medicos' typref='238471813'/>
+</Variables>
+<Values>
+<Binary_Exp op='\/' typref='238471813'>
+<Id value='medicos' typref='238471813'/>
+<Nary_Exp op='{' typref='238471813'>
+<Id value='mm' typref='2669468286'/>
+</Nary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Body>
+</Operation>
+<Operation name='removerMedico'>
+<Input_Parameters>
+<Id value='mm' typref='2669468286'/>
+</Input_Parameters>
+<Precondition>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Id value='mm' typref='2669468286'/>
+<Id value='MEDICOS' typref='238471813'/>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Id value='mm' typref='2669468286'/>
+<Id value='medicos' typref='238471813'/>
+</Exp_Comparison>
+</Nary_Pred>
+</Precondition>
+<Body>
+<Assignement_Sub>
+<Variables>
+<Id value='medicos' typref='238471813'/>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='238471813'>
+<Id value='medicos' typref='238471813'/>
+<Nary_Exp op='{' typref='238471813'>
+<Id value='mm' typref='2669468286'/>
+</Nary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Body>
+</Operation>
+</Operations>
+<TypeInfos>
+<Type id='238471813'>
+<Unary_Exp op='POW'>
+<Id value='MEDICOS'/>
+</Unary_Exp>
+</Type>
+<Type id='3817003670'>
+<Unary_Exp op='POW'>
+<Generic_Type/>
+</Unary_Exp>
+</Type>
+<Type id='2669468286'>
+<Id value='MEDICOS'/>
+</Type>
+</TypeInfos>
+
+</Machine>

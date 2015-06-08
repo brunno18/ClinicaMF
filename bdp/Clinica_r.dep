@@ -1,0 +1,7 @@
+file:2b33cfe450c672b6a26bfdd216f1e0de
+abst:Clinica
+incl:Medico
+incl:Paciente
+incl:Sala
+sees:Capacidade
+sees:Timefields

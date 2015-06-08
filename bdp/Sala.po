@@ -1,0 +1,21 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(5) & _f(8) & removerSala.1,(_f(3) => _f(9));
+_f(1) & _f(2) & _f(5) & _f(6) & addSala.1,(_f(3) => _f(7));
+_f(1) & _f(2) & Initialisation.1,(_f(3) => _f(4))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+SALAS: FIN(INTEGER) & not(SALAS = {});
+"Invariant is preserved";
+{} : POW( SALAS);
+salas : POW( SALAS);
+((ss) : (SALAS)) & not(ss : salas);
+((salas) \/ ({ss})) : POW( SALAS);
+((ss) : (SALAS)) & ((ss) : (salas));
+(salas - {ss}) : POW( SALAS);
+((ss) : (SALAS))
+END
+&
+THEORY EnumerateX
+END

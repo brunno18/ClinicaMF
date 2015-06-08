@@ -1,0 +1,425 @@
+<Proof_Obligations>
+<Define name="B definitions">
+<Nary_Pred op="&amp;">
+<Exp_Comparison op="=">
+<Id value="NAT"/>
+<Binary_Exp op="..">
+<Integer_Literal value="0"/>
+<Id value="MAXINT"/>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="=">
+<Id value="INT"/>
+<Binary_Exp op="..">
+<Id value="MININT"/>
+<Id value="MAXINT"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Define>
+<Define name="ctx"/>
+<Define name="seext"/>
+<Define name="inv">
+<Exp_Comparison op="&lt;:">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:3:1:1" initialTag="pacientes" typref="2619594397" value="pacientes"/>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:3:1:2" initialTag="PACIENTES" typref="2619594397" value="PACIENTES"/>
+</Exp_Comparison>
+</Define>
+<Define name="ass"/>
+<Define name="lprp">
+<Set>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:1:1:1" typref="2619594397" value="PACIENTES"/>
+</Set>
+</Define>
+<Define name="inprp"/>
+<Define name="inext"/>
+<Define name="cst"/>
+<Proof_Obligation>
+<Comment>Initialisation dans une machine abstraite</Comment>
+<Tag>Initialisation</Tag>
+<Tag>Invariant</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Goal>
+<Sub_Calculus>
+<Nary_Sub op=";">
+<Simple_Assignement_Sub>
+<Variables>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:4:1:1:1" typref="2619594397" value="pacientes"/>
+</Variables>
+<Values>
+<EmptySet tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:4:1:2:1" typref="3817003670"/>
+</Values>
+</Simple_Assignement_Sub>
+</Nary_Sub>
+<Binary_Pred op="=&gt;">
+<Nary_Pred op="&amp;"/>
+<Tag goalTag="Invariant is preserved">
+<Nary_Pred op="&amp;">
+<Exp_Comparison op="&lt;:">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:3:1:1" initialTag="pacientes" typref="2619594397" value="pacientes"/>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:3:1:2" initialTag="PACIENTES" typref="2619594397" value="PACIENTES"/>
+</Exp_Comparison>
+</Nary_Pred>
+</Tag>
+</Binary_Pred>
+</Sub_Calculus>
+</Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>addPaciente</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:1:2:1:1:1" typref="1067267558" value="pp"/>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:1:2:1:1:2" typref="2619594397" value="PACIENTES"/>
+</Exp_Comparison>
+<Exp_Comparison op="/:">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:1:2:1:2:1" typref="1067267558" value="pp"/>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:1:2:1:2:2" typref="2619594397" value="pacientes"/>
+</Exp_Comparison>
+</Nary_Pred>
+</Hypothesis>
+<Goal>
+<Sub_Calculus>
+<Simple_Assignement_Sub>
+<Variables>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:1:3:1:1:1" typref="2619594397" value="pacientes"/>
+</Variables>
+<Values>
+<Binary_Exp op="\/" typref="2619594397">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:1:3:1:2:1:1" typref="2619594397" value="pacientes"/>
+<Nary_Exp op="{" typref="2619594397">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:1:3:1:2:1:2:1" typref="1067267558" value="pp"/>
+</Nary_Exp>
+</Binary_Exp>
+</Values>
+</Simple_Assignement_Sub>
+<Binary_Pred op="=&gt;">
+<Nary_Pred op="&amp;"/>
+<Tag goalTag="Invariant is preserved">
+<Nary_Pred op="&amp;">
+<Exp_Comparison op="&lt;:">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:3:1:1" initialTag="pacientes" typref="2619594397" value="pacientes"/>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:3:1:2" initialTag="PACIENTES" typref="2619594397" value="PACIENTES"/>
+</Exp_Comparison>
+</Nary_Pred>
+</Tag>
+</Binary_Pred>
+</Sub_Calculus>
+</Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>removerPaciente</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:2:2:1:1:1" typref="1067267558" value="pp"/>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:2:2:1:1:2" typref="2619594397" value="PACIENTES"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:2:2:1:2:1" typref="1067267558" value="pp"/>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:2:2:1:2:2" typref="2619594397" value="pacientes"/>
+</Exp_Comparison>
+</Nary_Pred>
+</Hypothesis>
+<Goal>
+<Sub_Calculus>
+<Simple_Assignement_Sub>
+<Variables>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:2:3:1:1:1" typref="2619594397" value="pacientes"/>
+</Variables>
+<Values>
+<Binary_Exp op="-" typref="2619594397">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:2:3:1:2:1:1" typref="2619594397" value="pacientes"/>
+<Nary_Exp op="{" typref="2619594397">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:2:3:1:2:1:2:1" typref="1067267558" value="pp"/>
+</Nary_Exp>
+</Binary_Exp>
+</Values>
+</Simple_Assignement_Sub>
+<Binary_Pred op="=&gt;">
+<Nary_Pred op="&amp;"/>
+<Tag goalTag="Invariant is preserved">
+<Nary_Pred op="&amp;">
+<Exp_Comparison op="&lt;:">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:3:1:1" initialTag="pacientes" typref="2619594397" value="pacientes"/>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:3:1:2" initialTag="PACIENTES" typref="2619594397" value="PACIENTES"/>
+</Exp_Comparison>
+</Nary_Pred>
+</Tag>
+</Binary_Pred>
+</Sub_Calculus>
+</Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessConstraints</Tag>
+<Goal>
+<Tag goalTag="Well definedness">
+<Nary_Pred op="&amp;"/>
+</Tag>
+</Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessProperties</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Hypothesis>
+<Set>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:1:1:1" typref="2619594397" value="PACIENTES"/>
+</Set>
+</Hypothesis>
+<Goal>
+<Tag goalTag="Well definedness">
+<Nary_Pred op="&amp;"/>
+</Tag>
+</Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessInvariant</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Goal>
+<Tag goalTag="Well definedness">
+<Nary_Pred op="&amp;">
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;"/>
+</Binary_Pred>
+</Nary_Pred>
+</Tag>
+</Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessAssertions</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Goal>
+<Tag goalTag="Well definedness">
+<Nary_Pred op="&amp;"/>
+</Tag>
+</Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessInitialisation</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Goal>
+<Tag goalTag="Well definedness">
+<Nary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;"/>
+</Nary_Pred>
+</Tag>
+</Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_Precondition_addPaciente</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Goal>
+<Tag goalTag="Well definedness">
+<Nary_Pred op="&amp;">
+<Nary_Pred op="&amp;">
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;"/>
+</Binary_Pred>
+<Binary_Pred op="=&gt;">
+<Exp_Comparison op=":">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:1:2:1:1:1" typref="1067267558" value="pp"/>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:1:2:1:1:2" typref="2619594397" value="PACIENTES"/>
+</Exp_Comparison>
+<Nary_Pred op="&amp;">
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;"/>
+</Binary_Pred>
+</Nary_Pred>
+</Binary_Pred>
+</Nary_Pred>
+</Nary_Pred>
+</Tag>
+</Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_addPaciente</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:1:2:1:1:1" typref="1067267558" value="pp"/>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:1:2:1:1:2" typref="2619594397" value="PACIENTES"/>
+</Exp_Comparison>
+<Exp_Comparison op="/:">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:1:2:1:2:1" typref="1067267558" value="pp"/>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:1:2:1:2:2" typref="2619594397" value="pacientes"/>
+</Exp_Comparison>
+</Nary_Pred>
+</Hypothesis>
+<Goal>
+<Tag goalTag="Well definedness">
+<Nary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;"/>
+</Binary_Pred>
+</Nary_Pred>
+</Tag>
+</Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_Precondition_removerPaciente</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Goal>
+<Tag goalTag="Well definedness">
+<Nary_Pred op="&amp;">
+<Nary_Pred op="&amp;">
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;"/>
+</Binary_Pred>
+<Binary_Pred op="=&gt;">
+<Exp_Comparison op=":">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:2:2:1:1:1" typref="1067267558" value="pp"/>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:2:2:1:1:2" typref="2619594397" value="PACIENTES"/>
+</Exp_Comparison>
+<Nary_Pred op="&amp;">
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;"/>
+</Binary_Pred>
+</Nary_Pred>
+</Binary_Pred>
+</Nary_Pred>
+</Nary_Pred>
+</Tag>
+</Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_removerPaciente</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:2:2:1:1:1" typref="1067267558" value="pp"/>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:2:2:1:1:2" typref="2619594397" value="PACIENTES"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:2:2:1:2:1" typref="1067267558" value="pp"/>
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:5:2:2:1:2:2" typref="2619594397" value="pacientes"/>
+</Exp_Comparison>
+</Nary_Pred>
+</Hypothesis>
+<Goal>
+<Tag goalTag="Well definedness">
+<Nary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;"/>
+</Binary_Pred>
+</Nary_Pred>
+</Tag>
+</Goal>
+</Proof_Obligation>
+<TypeInfos>
+<Type id="2619594397">
+<Unary_Exp op="POW">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:6:1:1:1" value="PACIENTES"/>
+</Unary_Exp>
+</Type>
+<Type id="3817003670">
+<Unary_Exp op="POW">
+<Generic_Type tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:6:2:1:1"/>
+</Unary_Exp>
+</Type>
+<Type id="1067267558">
+<Id tag="C:\Users\bruno\Documents\AtelierB\teste4\ClinicaRefinada\bdp\Paciente.bxml:1:6:3:1" value="PACIENTES"/>
+</Type>
+</TypeInfos>
+</Proof_Obligations>

@@ -1,0 +1,42 @@
+<Machine name='Timefields' type='abstraction'>
+<Sets>
+<Set>
+<Id value='HORA' typref='702735211'/>
+</Set>
+<Set>
+<Id value='DIA' typref='4148633079'/>
+</Set>
+<Set>
+<Id value='MES' typref='1879026838'/>
+</Set>
+<Set>
+<Id value='ANO' typref='2524174525'/>
+</Set>
+</Sets>
+<Initialisation>
+<Skip/>
+</Initialisation>
+<TypeInfos>
+<Type id='702735211'>
+<Unary_Exp op='POW'>
+<Id value='HORA'/>
+</Unary_Exp>
+</Type>
+<Type id='4148633079'>
+<Unary_Exp op='POW'>
+<Id value='DIA'/>
+</Unary_Exp>
+</Type>
+<Type id='1879026838'>
+<Unary_Exp op='POW'>
+<Id value='MES'/>
+</Unary_Exp>
+</Type>
+<Type id='2524174525'>
+<Unary_Exp op='POW'>
+<Id value='ANO'/>
+</Unary_Exp>
+</Type>
+</TypeInfos>
+
+</Machine>

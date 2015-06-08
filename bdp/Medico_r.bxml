@@ -1,0 +1,157 @@
+<Machine name='Medico_r' type='refinement'>
+<Abstraction>Medico</Abstraction>
+<Sees>
+<Referenced_Machine>
+<Name>Answer</Name>
+</Referenced_Machine>
+</Sees>
+<Abstract_Variables>
+<Id value='medicosr' typref='1305031276'/>
+</Abstract_Variables>
+<Invariant>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Id value='medicosr' typref='1305031276'/>
+<Binary_Exp op='--&gt;' typref='3625667437'>
+<Id value='MEDICOS' typref='238471813'/>
+<Id value='ANSWER' typref='1186478419'/>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Id value='medicos' typref='238471813'/>
+<Unary_Exp op='dom' typref='238471813'>
+<Binary_Exp op='|&gt;' typref='1305031276'>
+<Id value='medicosr' typref='1305031276'/>
+<Nary_Exp op='{' typref='1186478419'>
+<Id value='yes' typref='3220095110'/>
+</Nary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Invariant>
+<Initialisation>
+<Assignement_Sub>
+<Variables>
+<Id value='medicosr' typref='1305031276'/>
+</Variables>
+<Values>
+<Binary_Exp op='*' typref='1305031276'>
+<Id value='MEDICOS' typref='238471813'/>
+<Nary_Exp op='{' typref='1186478419'>
+<Id value='no' typref='3220095110'/>
+</Nary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Initialisation>
+<Operations>
+<Operation name='addMedico'>
+<Input_Parameters>
+<Id value='mm' typref='2669468286'/>
+</Input_Parameters>
+<Precondition>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Id value='mm' typref='2669468286'/>
+<Id value='MEDICOS' typref='238471813'/>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Binary_Exp op='(' typref='3220095110'>
+<Id value='medicosr' typref='1305031276'/>
+<Id value='mm' typref='2669468286'/>
+</Binary_Exp>
+<Id value='no' typref='3220095110'/>
+</Exp_Comparison>
+</Nary_Pred>
+</Precondition>
+<Body>
+<Assignement_Sub>
+<Variables>
+<Binary_Exp op='(' typref='3220095110'>
+<Id value='medicosr' typref='1305031276'/>
+<Id value='mm' typref='2669468286'/>
+</Binary_Exp>
+</Variables>
+<Values>
+<Id value='yes' typref='3220095110'/>
+</Values>
+</Assignement_Sub>
+</Body>
+</Operation>
+<Operation name='removerMedico'>
+<Input_Parameters>
+<Id value='mm' typref='2669468286'/>
+</Input_Parameters>
+<Precondition>
+<Exp_Comparison op=':'>
+<Id value='mm' typref='2669468286'/>
+<Id value='MEDICOS' typref='238471813'/>
+</Exp_Comparison>
+</Precondition>
+<Body>
+<If_Sub elseif='no'>
+<Condition>
+<Exp_Comparison op='='>
+<Binary_Exp op='(' typref='3220095110'>
+<Id value='medicosr' typref='1305031276'/>
+<Id value='mm' typref='2669468286'/>
+</Binary_Exp>
+<Id value='yes' typref='3220095110'/>
+</Exp_Comparison>
+</Condition>
+<Then>
+<Assignement_Sub>
+<Variables>
+<Binary_Exp op='(' typref='3220095110'>
+<Id value='medicosr' typref='1305031276'/>
+<Id value='mm' typref='2669468286'/>
+</Binary_Exp>
+</Variables>
+<Values>
+<Id value='no' typref='3220095110'/>
+</Values>
+</Assignement_Sub>
+</Then>
+</If_Sub>
+</Body>
+</Operation>
+</Operations>
+<TypeInfos>
+<Type id='1305031276'>
+<Unary_Exp op='POW'>
+<Binary_Exp op='*'>
+<Id value='MEDICOS'/>
+<Id value='ANSWER'/>
+</Binary_Exp>
+</Unary_Exp>
+</Type>
+<Type id='3625667437'>
+<Unary_Exp op='POW'>
+<Unary_Exp op='POW'>
+<Binary_Exp op='*'>
+<Id value='MEDICOS'/>
+<Id value='ANSWER'/>
+</Binary_Exp>
+</Unary_Exp>
+</Unary_Exp>
+</Type>
+<Type id='238471813'>
+<Unary_Exp op='POW'>
+<Id value='MEDICOS'/>
+</Unary_Exp>
+</Type>
+<Type id='1186478419'>
+<Unary_Exp op='POW'>
+<Id value='ANSWER'/>
+</Unary_Exp>
+</Type>
+<Type id='3220095110'>
+<Id value='ANSWER'/>
+</Type>
+<Type id='2669468286'>
+<Id value='MEDICOS'/>
+</Type>
+</TypeInfos>
+
+</Machine>

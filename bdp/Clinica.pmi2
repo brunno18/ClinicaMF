@@ -1,0 +1,134 @@
+﻿THEORY BalanceX IS
+  Clinica,35,0,0,23,0,0,0;
+  Initialisation,8,0,0,8,0,0,0;
+  WellDefinednessInvariant,1,0,0,0,0,0,0;
+  addMedicoClinica,1,0,0,1,0,0,0;
+  addPacienteClinica,1,0,0,1,0,0,0;
+  addSalaClinica,2,0,0,1,0,0,0;
+  agendarConsulta,9,0,0,7,0,0,0;
+  desmarcarConsulta,9,0,0,1,0,0,0;
+  removerMedicoClinica,1,0,0,1,0,0,0;
+  removerPacienteClinica,1,0,0,1,0,0,0;
+  removerSalaClinica,2,0,0,2,0,0,0
+END
+&
+THEORY ProofState IS
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Proved(0);
+  Unproved;
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Unproved;
+  Unproved;
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Unproved;
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0)
+END
+&
+THEORY MethodList IS
+  ?;
+  ?;
+  ?;
+  ?;
+  ?;
+  ?;
+  ?;
+  ?;
+  pr;
+  ?;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  ?;
+  ?;
+  pr;
+  pr;
+  pr;
+  ?;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr
+END
+&
+THEORY PassList IS
+  Force(0),(?;0;1;2;3);
+  Force(0),(?;0;1;2;3);
+  Force(0),(?;0;1;2;3);
+  Force(0),(?;0;1;2;3);
+  Force(0),(?;0;1;2;3);
+  Force(0),(?;0;1;2;3);
+  Force(0),(?;0;1;2;3);
+  Force(0),(?;0;1;2;3);
+  Force(0),?;
+  Force(0),(?;0;1;2;3);
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),(?;0;1;2;3);
+  Force(0),(?;0;1;2;3);
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),(?;0;1;2;3);
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?
+END
+&
+THEORY ManForms 
+END
+&
+THEORY Version IS
+  PRVersion("svn")(CLT == "V4.0-53996")
+END

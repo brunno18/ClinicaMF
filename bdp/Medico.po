@@ -1,0 +1,21 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(5) & _f(8) & removerMedico.1,(_f(3) => _f(9));
+_f(1) & _f(2) & _f(5) & _f(6) & addMedico.1,(_f(3) => _f(7));
+_f(1) & _f(2) & Initialisation.1,(_f(3) => _f(4))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+MEDICOS: FIN(INTEGER) & not(MEDICOS = {});
+"Invariant is preserved";
+{} : POW( MEDICOS);
+medicos : POW( MEDICOS);
+((mm) : (MEDICOS)) & not(mm : medicos);
+((medicos) \/ ({mm})) : POW( MEDICOS);
+((mm) : (MEDICOS)) & ((mm) : (medicos));
+(medicos - {mm}) : POW( MEDICOS);
+((mm) : (MEDICOS))
+END
+&
+THEORY EnumerateX
+END

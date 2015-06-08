@@ -1,0 +1,135 @@
+﻿/* Clinica_r
+ * Author: Jonathan
+ * Creation date: 04/06/2015
+ */
+REFINEMENT
+    Clinica_r
+REFINES Clinica
+SEES Capacidade , Timefields
+INCLUDES Medico , Paciente , Sala
+
+ABSTRACT_VARIABLES idConsultasr , cmr , cpr , csr , chorar , cdiar , cmesr , canor , salasr
+
+INVARIANT
+    card ( salas ) <= capacidade &
+    salasr : NAT >+> salas &
+    idConsultasr : NAT1 &
+    cmr : 1 .. idConsultasr --> medicos &
+    cpr : 1 .. idConsultasr --> pacientes &
+    csr : 1 .. idConsultasr --> salas &
+    chorar : 1 .. idConsultasr --> HORA &
+    cdiar : 1 .. idConsultasr --> DIA &
+    cmesr : 1 .. idConsultasr --> MES &
+    canor : 1 .. idConsultasr --> ANO &
+    idConsultas = 1 .. idConsultasr &
+    counter = idConsultasr + 1 &
+    cm = cmr &
+    cp = cpr &
+    cs = csr &
+    chora = chorar &
+    cdia = cdiar &
+    cmes = cmesr &
+    cano = canor
+
+INITIALISATION
+        idConsultasr := 0 || cmr := {} || cpr := {} || csr := {} || chorar := {} || cdiar := {} || cmesr := {} || canor := {} || salasr := {}
+
+OPERATIONS
+
+    addMedicoClinica ( mm ) =
+    PRE mm : MEDICOS & mm /: medicos
+    THEN addMedico ( mm )
+    END ;
+
+    removerMedicoClinica ( mm ) =
+    PRE mm : MEDICOS & mm : medicos & mm /: ran ( cmr )
+    THEN removerMedico ( mm )
+    END ;
+
+    addPacienteClinica ( pp ) =
+    PRE pp : PACIENTES & pp /: pacientes
+    THEN addPaciente ( pp )
+    END ;
+
+    removerPacienteClinica ( pp ) =
+    PRE  pp : PACIENTES & pp : pacientes & pp /: ran ( cpr )
+    THEN removerPaciente ( pp )
+    END ;
+
+    addSalaClinica ( ss ) =
+    PRE ss : SALAS & ss /: salas
+    THEN addSala ( ss ) ; salasr ( card ( salasr ) + 1 ) := ss
+    END ;
+
+    removerSalaClinica ( ss ) =
+    PRE ss : SALAS & ss : salas & ss /: ran ( csr )
+    THEN salasr := salasr /|\ ( salasr ~ ( ss ) - 1 ) ^ salasr \|/ ( salasr ~ ( ss ) ) ;
+         removerSala ( ss )
+    END ;
+
+    identificador <-- agendarConsulta ( mm , pp , hora , dia , mes , ano ) =
+    PRE
+        hora : HORA &
+        dia : DIA &
+        mes : MES &
+        ano : ANO &
+        mm : MEDICOS &
+        mm : medicos &
+        pp : PACIENTES &
+        pp : pacientes &
+        mm /: cmr [ ( dom ( chorar |> { hora } ) /\ dom ( cdiar |> { dia } ) /\ dom ( cmesr |> { mes } ) /\ dom ( canor |> { ano } ) ) ] &
+        pp /: cpr [ ( dom ( chorar |> { hora } ) /\ dom ( cdiar |> { dia } ) /\ dom ( cmesr |> { mes } ) /\ dom ( canor |> { ano } ) ) ]
+    THEN
+        VAR sala
+        IN sala := min ( dom ( salasr |>> csr [ (
+                                              dom ( chorar |> { hora } ) /\
+                                              dom ( cdiar |> { dia } ) /\
+                                              dom ( cmesr |> { mes } ) /\
+                                              dom ( canor |> { ano } )
+                                           ) ] ) ) ;
+            idConsultasr := idConsultasr + 1 ;
+            identificador := idConsultasr ;
+            cmr ( idConsultasr ) := mm ;
+            cpr ( idConsultasr ) := pp ;
+            chorar ( idConsultasr ) := hora ;
+            cdiar ( idConsultasr ) := dia ;
+            cmesr ( idConsultasr ) := mes ;
+            canor ( idConsultasr ) := ano ;
+            csr ( idConsultasr ) := salasr ( sala )
+        END
+    END ;
+
+    desmarcarConsulta ( mm , pp , hora , dia , mes , ano ) =
+    PRE
+        hora : HORA &
+        dia : DIA &
+        mes : MES &
+        ano : ANO &
+        mm : MEDICOS &
+        mm : medicos &
+        pp : PACIENTES &
+        pp : pacientes        &
+        mm : cmr [ ( dom ( chorar |> { hora } ) /\ dom ( cdiar |> { dia } ) /\ dom ( cmesr |> { mes } ) /\ dom ( canor |> { ano } ) ) ] &
+        pp : cpr [ ( dom ( chorar |> { hora } ) /\ dom ( cdiar |> { dia } ) /\ dom ( cmesr |> { mes } ) /\ dom ( canor |> { ano } ) ) ]
+    THEN
+        VAR pos
+        IN
+            pos := min (
+                      dom ( cmr |> { mm } ) /\
+                      dom ( cpr |> { pp } ) /\
+                      dom ( chorar |> { hora } ) /\
+                      dom ( cdiar |> { dia } ) /\
+                      dom ( cmesr |> { mes } ) /\
+                      dom ( canor |> { ano } )
+                   ) ;
+            cmr    := ( cmr   /|\ ( pos - 1 ) ) ^ ( cmr \|/ pos ) ;
+            cpr    := ( cpr   /|\ ( pos - 1 ) ) ^ ( cpr \|/ pos ) ;
+            chorar := ( chorar /|\ ( pos - 1 ) ) ^ ( chorar \|/ pos ) ;
+            cdiar  := ( cdiar /|\ ( pos - 1 ) ) ^ ( cdiar \|/ pos ) ;
+            cmesr  := ( cmesr /|\ ( pos - 1 ) ) ^ ( cmesr \|/ pos ) ;
+            canor  := ( canor /|\ ( pos - 1 ) ) ^ ( canor \|/ pos ) ;
+            csr    := ( csr   /|\ ( pos - 1 ) ) ^ ( csr \|/ pos ) ;
+            idConsultasr := idConsultasr - 1
+        END
+    END
+END

@@ -1,0 +1,25 @@
+<Machine name='Answer' type='abstraction'>
+<Sets>
+<Set>
+<Id value='ANSWER' typref='1186478419'/>
+<Enumerated_Values>
+<Id value='yes' typref='3220095110'/>
+<Id value='no' typref='3220095110'/>
+</Enumerated_Values>
+</Set>
+</Sets>
+<Initialisation>
+<Skip/>
+</Initialisation>
+<TypeInfos>
+<Type id='1186478419'>
+<Unary_Exp op='POW'>
+<Id value='ANSWER'/>
+</Unary_Exp>
+</Type>
+<Type id='3220095110'>
+<Id value='ANSWER'/>
+</Type>
+</TypeInfos>
+
+</Machine>

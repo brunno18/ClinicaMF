@@ -1,0 +1,108 @@
+<Machine name='Sala' type='abstraction'>
+<Sets>
+<Set>
+<Id value='SALAS' typref='1029723243'/>
+</Set>
+</Sets>
+<Abstract_Variables>
+<Id value='salas' typref='1029723243'/>
+</Abstract_Variables>
+<Invariant>
+<Exp_Comparison op='&lt;:'>
+<Id value='salas' typref='1029723243'/>
+<Id value='SALAS' typref='1029723243'/>
+</Exp_Comparison>
+</Invariant>
+<Initialisation>
+<Assignement_Sub>
+<Variables>
+<Id value='salas' typref='1029723243'/>
+</Variables>
+<Values>
+<EmptySet typref='3817003670'/>
+</Values>
+</Assignement_Sub>
+</Initialisation>
+<Operations>
+<Operation name='addSala'>
+<Input_Parameters>
+<Id value='ss' typref='1186533272'/>
+</Input_Parameters>
+<Precondition>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Id value='ss' typref='1186533272'/>
+<Id value='SALAS' typref='1029723243'/>
+</Exp_Comparison>
+<Exp_Comparison op='/:'>
+<Id value='ss' typref='1186533272'/>
+<Id value='salas' typref='1029723243'/>
+</Exp_Comparison>
+</Nary_Pred>
+</Precondition>
+<Body>
+<Assignement_Sub>
+<Variables>
+<Id value='salas' typref='1029723243'/>
+</Variables>
+<Values>
+<Binary_Exp op='\/' typref='1029723243'>
+<Id value='salas' typref='1029723243'/>
+<Nary_Exp op='{' typref='1029723243'>
+<Id value='ss' typref='1186533272'/>
+</Nary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Body>
+</Operation>
+<Operation name='removerSala'>
+<Input_Parameters>
+<Id value='ss' typref='1186533272'/>
+</Input_Parameters>
+<Precondition>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Id value='ss' typref='1186533272'/>
+<Id value='SALAS' typref='1029723243'/>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Id value='ss' typref='1186533272'/>
+<Id value='salas' typref='1029723243'/>
+</Exp_Comparison>
+</Nary_Pred>
+</Precondition>
+<Body>
+<Assignement_Sub>
+<Variables>
+<Id value='salas' typref='1029723243'/>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='1029723243'>
+<Id value='salas' typref='1029723243'/>
+<Nary_Exp op='{' typref='1029723243'>
+<Id value='ss' typref='1186533272'/>
+</Nary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Body>
+</Operation>
+</Operations>
+<TypeInfos>
+<Type id='1029723243'>
+<Unary_Exp op='POW'>
+<Id value='SALAS'/>
+</Unary_Exp>
+</Type>
+<Type id='3817003670'>
+<Unary_Exp op='POW'>
+<Generic_Type/>
+</Unary_Exp>
+</Type>
+<Type id='1186533272'>
+<Id value='SALAS'/>
+</Type>
+</TypeInfos>
+
+</Machine>

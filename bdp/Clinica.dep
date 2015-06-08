@@ -1,0 +1,6 @@
+file:a838c360ba03fc3b288904b54d10541f
+incl:Medico
+incl:Paciente
+incl:Sala
+sees:Capacidade
+sees:Timefields

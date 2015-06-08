@@ -1,0 +1,31 @@
+﻿/* Paciente_r
+* Author: Jonathan
+* Creation date: 03/06/2015
+*/
+
+REFINEMENT Paciente_r
+REFINES Paciente
+SEES Answer
+ABSTRACT_VARIABLES pacientesr
+
+INVARIANT pacientesr : PACIENTES --> ANSWER & pacientes = dom ( pacientesr |> { yes } )
+
+INITIALISATION pacientesr := PACIENTES * { no }
+
+OPERATIONS
+    addPaciente ( pp ) =
+    PRE pp : PACIENTES & pacientesr ( pp ) = no
+    THEN
+        pacientesr ( pp ) := yes
+    END ;
+
+    removerPaciente ( pp ) =
+    PRE pp : PACIENTES
+    THEN
+        IF pacientesr ( pp ) = yes
+        THEN
+            pacientesr ( pp ) := no
+        END
+    END
+
+END

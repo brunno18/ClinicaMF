@@ -1,0 +1,31 @@
+<Machine name='Capacidade' type='abstraction'>
+<Concrete_Constants>
+<Id value='capacidade' typref='2701647786'/>
+</Concrete_Constants>
+<Properties>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Id value='capacidade' typref='2701647786'/>
+<Id value='NAT' typref='3603043417'/>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Id value='capacidade' typref='2701647786'/>
+<Integer_Literal value='5' typref='2701647786'/>
+</Exp_Comparison>
+</Nary_Pred>
+</Properties>
+<Initialisation>
+<Skip/>
+</Initialisation>
+<TypeInfos>
+<Type id='2701647786'>
+<Id value='INTEGER'/>
+</Type>
+<Type id='3603043417'>
+<Unary_Exp op='POW'>
+<Id value='INTEGER'/>
+</Unary_Exp>
+</Type>
+</TypeInfos>
+
+</Machine>

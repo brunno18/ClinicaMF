@@ -1,0 +1,16 @@
+digraph {
+Answer [ label=" Answer " shape= box ]
+Capacidade [ label=" Capacidade " shape= box ]
+Clinica_r [ label=" Clinica\nClinica_r " shape= box ]
+Horario [ label=" Horario " shape= box ]
+Medico_r [ label=" Medico\nMedico_r " shape= box ]
+Paciente_r [ label=" Paciente\nPaciente_r " shape= box ]
+Sala_r [ label=" Sala\nSala_r " shape= box ]
+TimefieldsI [ label=" Timefields\nTimefieldsI " shape= box ]
+
+"Clinica_r" -> "Capacidade" [style= dotted ]
+"Clinica_r" -> "TimefieldsI" [style= dotted ]
+"Medico_r" -> "Answer" [style= dotted ]
+"Paciente_r" -> "Answer" [style= dotted ]
+"Sala_r" -> "Answer" [style= dotted ]
+}

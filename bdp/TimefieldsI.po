@@ -1,0 +1,20 @@
+THEORY ProofList IS
+_f(1) & ValuesLemmas.4,(_f(2) => _f(6));
+_f(1) & ValuesLemmas.3,(_f(2) => _f(5));
+_f(1) & ValuesLemmas.2,(_f(2) => _f(4));
+_f(1) & ValuesLemmas.1,(_f(2) => _f(3))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+"Valuation is correct";
+{8}\/{9}\/{10}\/{11}\/{14}\/{15}\/{16}\/{17}: FIN(INTEGER) & not({8}\/{9}\/{10}\/{11}\/{14}\/{15}\/{16}\/{17} = {});
+((1) .. (31)): FIN(INTEGER) & not(((1) .. (31)) = {});
+((1) .. (12)): FIN(INTEGER) & not(((1) .. (12)) = {});
+((2015) .. (2020)): FIN(INTEGER) & not(((2015) .. (2020)) = {});
+HORA: FIN(INTEGER) & not(HORA = {}) & DIA: FIN(INTEGER) & not(DIA = {}) & MES: FIN(INTEGER) & not(MES = {}) & ANO: FIN(INTEGER) & not(ANO = {});
+((HORA) = ({8}\/{9}\/{10}\/{11}\/{14}\/{15}\/{16}\/{17})) & ((DIA) = (((1) .. (31)))) & ((MES) = (((1) .. (12)))) & ((ANO) = (((2015) .. (2020))))
+END
+&
+THEORY EnumerateX
+END
